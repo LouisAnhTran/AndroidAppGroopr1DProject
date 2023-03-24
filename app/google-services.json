@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "701104032129",
+    "project_id": "dprojectgroopr",
+    "storage_bucket": "dprojectgroopr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701104032129:android:2ee0d0e3410706c73b0080",
+        "android_client_info": {
+          "package_name": "com.example.Groopr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701104032129-dmrg7eksh9e4l3s4jihc1aieku5s8899.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.Groopr",
+            "certificate_hash": "c9be95b597bf0f69680713e4374185539d90ba41"
+          }
+        },
+        {
+          "client_id": "701104032129-hkb759e1a0j9gqah58nvljg1n3lag9hk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGIdE5hu8qVmwW9SNQcUpIsq1-dNZKVaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701104032129-hkb759e1a0j9gqah58nvljg1n3lag9hk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
