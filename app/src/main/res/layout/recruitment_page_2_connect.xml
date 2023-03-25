@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2_groopr">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="214dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="50_001_introduction_to_information_systems"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#707070"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="249dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins"
+        android:text="recruitment"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="298dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edit"
+        android:drawableEnd="@drawable/search_img"
+        android:ems="10"
+        android:hint="1D PROJECT GROUPS:"
+        android:fontFamily="@font/poppins_bold"
+        android:inputType="textPersonName"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColorHint="#ECBC76"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="162dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:autoSizeTextType="uniform"
+        android:ems="10"
+        android:fontFamily="@font/poppins"
+        android:hint="Java"
+        android:inputType="textMultiLine"
+        android:textColorHint="#ECBC76"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="85dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/poppins"
+        android:text="filter_by"
+        android:textColor="#BD7000"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="Group name"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        tools:layout_editor_absoluteX="132dp" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Group name"
+        app:layout_constraintTop_toBottomOf="@+id/button11"
+        tools:layout_editor_absoluteX="132dp" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Group name"
+        app:layout_constraintTop_toBottomOf="@+id/button12"
+        tools:layout_editor_absoluteX="132dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
