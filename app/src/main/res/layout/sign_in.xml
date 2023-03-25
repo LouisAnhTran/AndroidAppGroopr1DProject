@@ -151,5 +151,3 @@
         android:autofillHints="password123"
         android:inputType="textPassword" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
