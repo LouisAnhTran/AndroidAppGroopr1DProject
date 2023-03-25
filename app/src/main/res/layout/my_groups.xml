@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppinsMedium"
-        android:text="50.001 Introduction to Information Systems"
+        android:text="50.001 Introduction to Information Sys"
         android:textColor="#BD7000"
         app:layout_constraintTop_toBottomOf="@+id/button14"
         tools:layout_editor_absoluteX="52dp" />
@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:fontFamily="@font/poppinsMedium"
-        android:text="50.001 Introduction to Information Systems"
+        android:text="50.002 Computation Structures"
         android:textColor="#BD7000"
         app:layout_constraintStart_toStartOf="@+id/button16"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
