@@ -1,5 +1,7 @@
 package com.example.Groopr.Model;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -111,5 +113,12 @@ public class Student {
         this.projectList = new ArrayList<String>();
         this.aboutYou="";
         this.skillSet="";
+        this.projectList.add("");
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.getStudentID() + " " + this.getFullName();
     }
 }

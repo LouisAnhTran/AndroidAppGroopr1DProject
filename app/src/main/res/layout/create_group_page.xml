@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/groupNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:hint="group x"
+        android:id="@+id/groupNameInput"
+        />
+
+    <TextView
+        android:id="@+id/Capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capacity"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:hint="5,6,7"
+        android:id="@+id/inputCapacity"
+        />
+
+    <TextView
+        android:id="@+id/groupDiscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Description"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:hint="Looking for people who love algorithms"
+        android:id="@+id/inputGroupDescription"
+        />
+
+    <TextView
+        android:id="@+id/groupSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Description"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:minWidth="48dp"
+        android:hint="skills"
+        android:id="@+id/inputGroupSkill"
+        />
+
+
+</LinearLayout>

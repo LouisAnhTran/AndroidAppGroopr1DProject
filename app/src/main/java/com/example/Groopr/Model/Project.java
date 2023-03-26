@@ -11,6 +11,16 @@ public class Project {
     private String message;
     private String skillNeeded;
 
+    private String teamLeaderId;
+
+    public String getTeamLeaderId() {
+        return teamLeaderId;
+    }
+
+    public void setTeamLeaderId(String teamLeaderId) {
+        this.teamLeaderId = teamLeaderId;
+    }
+
     public String getProjectName() {
         return projectName;
     }
@@ -63,12 +73,13 @@ public class Project {
         this.studentList=new ArrayList<String>();
     }
 
-    public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded) {
+    public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded,String teamLeaderID) {
         this.projectName = projectName;
         this.moduleID = moduleID;
         this.studentList = studentList;
         this.maxNumberOfMember = maxNumberOfMember;
         this.message = message;
         this.skillNeeded = skillNeeded;
+        this.teamLeaderId=teamLeaderID;
     }
 }
