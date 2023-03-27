@@ -1,4 +1,4 @@
-package com.example.Groopr.Model;
+package Groopr.Model;
 
 import java.util.ArrayList;
 import java.util.List;
