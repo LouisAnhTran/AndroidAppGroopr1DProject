@@ -6,6 +6,14 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/moduleNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <TextView
         android:id="@+id/groupNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
