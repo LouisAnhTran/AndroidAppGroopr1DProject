@@ -23,14 +23,14 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
 
-        editTextEmail=(EditText)findViewById(R.id.inputEmail);
-        editTextFullName=(EditText)findViewById(R.id.inputPersonName);
-        editTextStudentID=(EditText)findViewById(R.id.inputStudentID);
-        editTextUserName=(EditText)findViewById(R.id.inputUserName);
-        editTextTerm=(EditText)findViewById(R.id.inputTerm);
-        editTextPillar=(EditText)findViewById(R.id.inputPillar);
-        editTextPassWord=(EditText)findViewById(R.id.inputPassword);
-        clickToSignUp=(Button)findViewById(R.id.buttonToSignUp);
+        editTextEmail = findViewById(R.id.inputEmail);
+        editTextFullName = findViewById(R.id.inputPersonName);
+        editTextStudentID = findViewById(R.id.inputStudentID);
+        editTextUserName = findViewById(R.id.inputUserName);
+        editTextTerm = findViewById(R.id.inputTerm);
+        editTextPillar = findViewById(R.id.inputPillar);
+        editTextPassWord = findViewById(R.id.inputPassword);
+        clickToSignUp = findViewById(R.id.buttonToSignUp);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

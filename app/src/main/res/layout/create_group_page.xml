@@ -36,6 +36,7 @@
         android:minHeight="48dp"
         android:minWidth="48dp"
         android:hint="5,6,7"
+        android:inputType="numberDecimal"
         android:id="@+id/inputCapacity"
         />
 
@@ -60,7 +61,8 @@
         android:id="@+id/groupSkill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Group Description"
+        android:fontFamily="@font/poppins"
+        android:text="Group Skills"
         tools:layout_editor_absoluteX="47dp"
         tools:layout_editor_absoluteY="120dp" />
 
@@ -69,9 +71,20 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:minWidth="48dp"
-        android:hint="skills"
+        android:hint="C, Java, SQL, etc."
         android:id="@+id/inputGroupSkill"
         />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/createGroup"
+        android:layout_width="284dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="60dp"
+        android:layout_below="@id/inputGroupSkill"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#E48700"
+        android:text="Create Group" />
 
 
 </LinearLayout>
