@@ -3,6 +3,7 @@ package Groopr;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,11 @@ import android.widget.Toast;
 import Groopr.Model.Student;
 
 import com.example.Groopr.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,87 +32,75 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     Button b1;
-    private TextView editTextUserName;
+    private TextView editTextEmail;
     private TextView editTextPassWord;
     private TextView signUpNavigate;
     private TextView buttonSignIn;
+    private final String emailPattern="^(.+)@(.+)$";
+    private ProgressDialog progressDialog;
 
-
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in);
 
-        editTextUserName=(EditText)findViewById(R.id.inputUserName);
+        editTextEmail=(EditText)findViewById(R.id.inputUserName);
         editTextPassWord=(EditText)findViewById(R.id.inputPassword);
         signUpNavigate=(TextView) findViewById(R.id.signUp);
         buttonSignIn=(Button)findViewById(R.id.buttonSignIN);
+        signUpNavigate=(TextView)findViewById(R.id.signUp);
+        progressDialog=new ProgressDialog(this);
+        mAuth=FirebaseAuth.getInstance();
+        mUser=mAuth.getCurrentUser();
+
+        signUpNavigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,SignUp.class);
+                startActivity(intent);
+            }
+        });
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDatabase=FirebaseDatabase.getInstance().getReference();
-//                query=query.orderByChild("userName").equalTo(editTextUserName.getText().toString());
-                mDatabase.child("Student").orderByChild("password").equalTo(editTextPassWord.getText().toString()).orderByChild("username").equalTo(editTextUserName.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot==null){
-                            Toast.makeText(MainActivity.this, R.string.invalid_login_information,Toast.LENGTH_LONG).show();
-                        }
-                        else {
-                            ArrayList<Student> l1=new ArrayList<Student>();
-                            for(DataSnapshot t1 : snapshot.getChildren()){
-                                Student st=t1.getValue(Student.class);
-                                l1.add(st);
+                boolean check=true;
+                if(!editTextEmail.getText().toString().matches((MainActivity.this.emailPattern))){
+                    editTextEmail.setError("Wrong Email Format");
+                    check=false;
+                }
+                if(editTextPassWord.getText().toString().isEmpty() || editTextPassWord.getText().toString().length()<5){
+                    editTextPassWord.setError("Password at least 6 characters wrong");
+                    check=false;
+                }
+                if(check){
+                    progressDialog.setMessage("Please wait while sign in...");
+                    progressDialog.setTitle("Sign in in progress");
+                    progressDialog.setCanceledOnTouchOutside(false);
+                    progressDialog.show();
+
+                    mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(),editTextPassWord.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                progressDialog.dismiss();
+                                Toast.makeText(MainActivity.this,"Sign In successful",Toast.LENGTH_LONG).show();
+                                Intent intent=new Intent(MainActivity.this,HomePage.class);
+                                startActivity(intent);
                             }
-                            Log.d("OurInfo",l1.toString());
-                            Intent intent=new Intent(MainActivity.this,SignUp.class);
-                            startActivity(intent);
+                            else{
+                                progressDialog.dismiss();
+                                Toast.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+                    });
+                }
             }
         });
 
-
-
-
-
-
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
-//
-//
-//        Student student=new Student("100032","nadas","CSD","4","dsad@gmail.com","dada","daasd");
-//        student.getProjectList().add("");
-//
-//        mDatabase.child("Student").push().setValue(student);
-//
-//        mDatabase.child("Student").orderByChild("studentID").equalTo("100032").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                ArrayList<Student> l1=new ArrayList<Student>();
-//                for(DataSnapshot l2:snapshot.getChildren()){
-//                    Student s1=l2.getValue(Student.class);
-//                    l1.add(s1);
-//                }
-//                String statement="";
-//                for(Student s1: l1){
-//                    statement+=s1.getPassword();
-//                }
-//                Log.d("Nana",statement);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
 
 

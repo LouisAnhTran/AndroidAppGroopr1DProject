@@ -125,7 +125,7 @@
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color"
         android:drawablePadding="12dp"
-        android:hint="Username or email"
+        android:hint="Your email address"
         android:inputType="textEmailAddress"
         android:minWidth="48dp"
         android:minHeight="48dp"
