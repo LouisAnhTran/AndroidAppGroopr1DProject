@@ -1,9 +1,8 @@
-package com.example.Groopr.Model;
+package Groopr.Model;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Student {

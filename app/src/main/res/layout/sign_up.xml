@@ -69,14 +69,14 @@ android:layout_height="match_parent">
         app:layout_constraintTop_toBottomOf="@+id/ID" />
 
     <TextView
-    android:id="@+id/ID"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="76dp"
-    android:fontFamily="@font/poppins"
-    android:text="Student ID"
-    app:layout_constraintStart_toStartOf="@+id/Name"
-    app:layout_constraintTop_toBottomOf="@+id/Name" />
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/poppins"
+        android:text="Student ID"
+        app:layout_constraintStart_toStartOf="@+id/Name"
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <TextView
         android:id="@+id/Username"
