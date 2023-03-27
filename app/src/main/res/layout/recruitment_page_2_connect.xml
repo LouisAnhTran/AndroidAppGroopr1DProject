@@ -13,7 +13,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
         android:fontFamily="@font/poppins_light"
-        android:text="50_001_introduction_to_information_systems"
+        android:text="50.001 Introduction to Information Systems"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#707070"
         app:autoSizeTextType="uniform"
@@ -27,7 +27,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins"
-        android:text="recruitment"
+        android:text="@string/recruitment"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:autoSizeTextType="uniform"
@@ -79,7 +79,7 @@
         android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/poppins"
-        android:text="filter_by"
+        android:text="@string/filter_by"
         android:textColor="#BD7000"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
-        android:text="Group name"
+        android:text="@string/group_name"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
         tools:layout_editor_absoluteX="132dp" />
 
@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Group name"
+        android:text="@string/group_name"
         app:layout_constraintTop_toBottomOf="@+id/button11"
         tools:layout_editor_absoluteX="132dp" />
 
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Group name"
+        android:text="@string/group_name"
         app:layout_constraintTop_toBottomOf="@+id/button12"
         tools:layout_editor_absoluteX="132dp" />
 
