@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/myGroupsButton"
         android:layout_width="280dp"
         android:layout_height="86dp"
         android:layout_marginStart="66dp"
@@ -47,7 +47,7 @@
         android:text="PROFILE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/myGroupsButton" />
 
     <TextView
         android:id="@+id/textView"
