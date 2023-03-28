@@ -132,6 +132,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/inputUserNameText"
         app:layout_constraintTop_toBottomOf="@+id/inputUserNameText" />
 
@@ -152,6 +153,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/inputPasswordText"
         app:layout_constraintTop_toBottomOf="@+id/inputUserName" />
 
