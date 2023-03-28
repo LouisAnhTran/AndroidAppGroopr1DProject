@@ -13,7 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Groopr.Model.Student;
+import Groopr.Model.FactoryDesignForPillar.Pillar;
+import Groopr.Model.FactoryDesignForPillar.ShapeFactory;
 
 import com.example.Groopr.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,13 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -63,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ShapeFactory st=new ShapeFactory();
+        Pillar p1=st.getProduct("CSD");
+        Log.d("Test",p1.getTerm4ModuleList().toString());
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
