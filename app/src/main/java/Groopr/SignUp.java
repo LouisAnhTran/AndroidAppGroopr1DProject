@@ -156,7 +156,7 @@ public class SignUp extends AppCompatActivity {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
                         Toast.makeText(SignUp.this,"Registration successful",Toast.LENGTH_LONG).show();
-                        mDatabase.child("Student").push().setValue(new Student(editTextStudentID.getText().toString(),editTextFullName.getText().toString(),editTextPillar.getText().toString(),editTextTerm.getText().toString(),editTextEmail.getText().toString(),editTextUserName.getText().toString(),editTextPassWord.getText().toString()));
+                        mDatabase.child("Student").child(mAuth.getUid()).setValue(new Student(editTextStudentID.getText().toString(),editTextFullName.getText().toString(),editTextPillar.getText().toString(),editTextTerm.getText().toString(),editTextEmail.getText().toString(),editTextUserName.getText().toString(),editTextPassWord.getText().toString()));
                         Intent intent=new Intent(SignUp.this,MainActivity.class);
                         startActivity(intent);
                     }
