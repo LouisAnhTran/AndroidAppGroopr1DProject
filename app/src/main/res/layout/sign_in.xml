@@ -122,8 +122,9 @@
         android:id="@+id/inputUserName"
         android:layout_width="325dp"
         android:layout_height="60dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="42dp"
+        android:layout_marginEnd="43dp"
         android:autofillHints="name123"
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color"
@@ -137,15 +138,16 @@
         android:textColor="@color/black"
         android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/inputUserNameText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputUserNameText" />
 
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="325dp"
         android:layout_height="60dp"
+        android:layout_marginStart="43dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginEnd="43dp"
         android:autofillHints="password123"
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color_lock"
@@ -160,7 +162,7 @@
         android:textColor="@color/black"
         android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/inputPasswordText"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputUserName" />
 
 

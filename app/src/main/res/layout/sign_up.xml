@@ -23,27 +23,28 @@
         android:id="@+id/inputEmail"
         android:layout_width="320dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="43dp"
+        android:autofillHints=""
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color"
         android:drawablePadding="12dp"
         android:hint="@string/sutd_email_address"
-        android:textColorHint="#808080"
         android:inputType="textEmailAddress"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/haveaccount"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Email"
-        app:layout_constraintTop_toBottomOf="@+id/Email"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="43dp"
         android:autofillHints=""
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color_lock"
@@ -55,7 +56,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Email"
         app:layout_constraintTop_toBottomOf="@+id/PW" />
 
@@ -209,6 +210,7 @@
         android:id="@+id/inputUserName"
         android:layout_width="152dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="43dp"
         android:background="@drawable/custom_edit"
         android:ems="10"
         android:hint="@string/user_name"
@@ -218,7 +220,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
-        app:layout_constraintEnd_toEndOf="@+id/inputPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Username"
         app:layout_constraintTop_toBottomOf="@+id/Username" />
 
@@ -248,8 +250,9 @@
         android:layout_width="152dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="43dp"
         android:background="@drawable/custom_edit"
-        app:layout_constraintEnd_toEndOf="@+id/inputUserName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/inputUserName">
 
