@@ -96,45 +96,31 @@
         app:layout_constraintStart_toStartOf="@+id/ClothesIcon"
         app:layout_constraintTop_toBottomOf="@+id/GroupTitle" />
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="250dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="286dp">
+        tools:layout_editor_absoluteY="364dp">
 
-        <ImageView
-            android:id="@+id/Tele1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop=""
-            android:background="@drawable/red_border"
-            android:clipToOutline="true"
-            app:srcCompat="@drawable/clothes" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/Tele2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop=""
-            android:background="@drawable/red_border"
-            android:clipToOutline="true"
-            app:srcCompat="@drawable/clothes" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/Tele3"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop=""
-            android:background="@drawable/red_border"
-            android:clipToOutline="true"
-            app:srcCompat="@drawable/clothes" />
-    </LinearLayout>
-
-
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/imageView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

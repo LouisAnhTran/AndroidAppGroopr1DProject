@@ -155,12 +155,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
-            android:hint="6"
+            android:editable="false"
             android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -176,6 +174,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/text_border"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
 
@@ -204,12 +203,12 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="130dp"
+        android:background="@drawable/red_border"
+        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/redcurvedbox"
-        android:background="@drawable/red_border"
-        android:clipToOutline="true"/>
+        app:srcCompat="@drawable/redcurvedbox" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/EditModuleInput"
@@ -270,9 +269,10 @@
         android:id="@+id/CapacitySpinner"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
+
+        android:backgroundTint="@color/black"
         android:entries="@array/capacity_array"
         app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
-        app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
         app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"
         app:layout_constraintTop_toTopOf="@+id/EditCapacityInput" />
 
@@ -285,7 +285,6 @@
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
         app:layout_constraintTop_toTopOf="@+id/EditSkillsInput"
         app:srcCompat="@drawable/add" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
