@@ -14,7 +14,7 @@
 
         android:text="Create Groups"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CreateGroups" />
 
     <Button
-        android:id="@+id/PostButton"
+        android:id="@+id/createGroupFinalButton"
         android:layout_width="120dp"
         android:layout_height="53dp"
         android:backgroundTint="@color/orangeApp"
@@ -54,6 +54,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputGroupSkill"
             android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
@@ -93,13 +94,14 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputGroupDescription"
             android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,13 +116,14 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/groupNameInput"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="Group Algo"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,14 +154,16 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputCapacity"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:editable="false"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -167,7 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/PostButton"
+        app:layout_constraintBottom_toBottomOf="@id/createGroupFinalButton"
         app:layout_constraintStart_toStartOf="@+id/EditSkillsInput">
 
 
@@ -175,11 +180,10 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
-            android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
 
             android:hint="Group Algo"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -203,31 +207,33 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="130dp"
-        android:background="@drawable/red_border"
-        android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/redcurvedbox" />
+        app:srcCompat="@drawable/redcurvedbox"
+        android:background="@drawable/red_border"
+        android:clipToOutline="true"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/EditModuleInput"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
         app:boxStrokeWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/selectModule"
             android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="50.004 Algorithms"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -266,13 +272,12 @@
         app:layout_constraintTop_toTopOf="@+id/EditMembersInput" />
 
     <Spinner
-        android:id="@+id/CapacitySpinner"
+        android:id="@+id/spinner5"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-
-        android:backgroundTint="@color/black"
         android:entries="@array/capacity_array"
         app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
+        app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
         app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"
         app:layout_constraintTop_toTopOf="@+id/EditCapacityInput" />
 
@@ -285,6 +290,7 @@
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
         app:layout_constraintTop_toTopOf="@+id/EditSkillsInput"
         app:srcCompat="@drawable/add" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

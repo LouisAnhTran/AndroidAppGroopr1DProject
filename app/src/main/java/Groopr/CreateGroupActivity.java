@@ -64,24 +64,23 @@ public class CreateGroupActivity extends AppCompatActivity{
         });
 
         // Adjust options of modDropDownMenu
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference studentRef = database.getReference("Student/" + uid);
-        studentRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
+        studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Retrieve the pillar and term attributes from the Student node
-                String pillar = dataSnapshot.child("pillar").getValue(String.class);
-                int term = dataSnapshot.child("term").getValue(Integer.class);
+                String pillar = dataSnapshot.child("pillar").getValue().toString();
+                String term = dataSnapshot.child("term").getValue().toString();
 
                 // Create an array of options based on the pillar and term attributes
                 String[] options;
-                if (term == 4) {
+                if (term == "4") {
                     if (pillar.equals("CSD")) {
                         options = new String[] {"50.001 Information Systems & Programming", "50.002 Computation Structures", "50.004 Algorithms"};
                     } else {
                         options = new String[]{};
                     }
-                } else if (term == 5) {
+                } else if (term == "5") {
                     if (pillar.equals("CSD")) {
                         options = new String[] {"50.003 Elements of Software Construction", "50.005 Computer System Engineering"};
                     } else {
@@ -103,7 +102,6 @@ public class CreateGroupActivity extends AppCompatActivity{
 
             }
         });
-
     }
 
     void createGroup(){
@@ -163,7 +161,6 @@ public class CreateGroupActivity extends AppCompatActivity{
         return true;
     }
 }
-
 
 
 
