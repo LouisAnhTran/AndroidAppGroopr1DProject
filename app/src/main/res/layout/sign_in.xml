@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/picture1"
-    tools:context=".MainActivity">
+    tools:context="Groopr.MainActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -125,13 +125,14 @@
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color"
         android:drawablePadding="12dp"
-        android:hint="Username or email"
+        android:hint="Your email address"
         android:inputType="textEmailAddress"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/inputUserNameText"
         app:layout_constraintTop_toBottomOf="@+id/inputUserNameText" />
 
@@ -144,6 +145,7 @@
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color_lock"
         android:drawablePadding="12dp"
+        android:fontFamily="@font/poppins"
         android:hint="Password"
         android:inputType="textPassword"
         android:minWidth="48dp"
@@ -151,6 +153,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/inputPasswordText"
         app:layout_constraintTop_toBottomOf="@+id/inputUserName" />
 
