@@ -44,6 +44,7 @@ android:layout_height="match_parent">
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
+        android:autofillHints=""
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color_lock"
         android:drawablePadding="12dp"
@@ -54,9 +55,9 @@ android:layout_height="match_parent">
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/Email"
-        app:layout_constraintTop_toBottomOf="@+id/PW"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/PW" />
 
     <TextView
         android:id="@+id/PW"
@@ -182,6 +183,7 @@ android:layout_height="match_parent">
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
@@ -189,15 +191,17 @@ android:layout_height="match_parent">
         android:id="@+id/inputStudentID"
         android:layout_width="152dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_edit"
         android:ems="10"
         android:hint="@string/_100xxxx"
-        android:textColorHint="#808080"
         android:inputType="number"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toStartOf="@+id/inputUserName"
         app:layout_constraintStart_toStartOf="@+id/Email"
         app:layout_constraintTop_toBottomOf="@+id/ID" />
 
@@ -208,12 +212,13 @@ android:layout_height="match_parent">
         android:background="@drawable/custom_edit"
         android:ems="10"
         android:hint="@string/user_name"
-        android:textColorHint="#808080"
         android:inputType="textPersonName"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="@+id/inputPersonName"
         app:layout_constraintStart_toStartOf="@+id/Username"
         app:layout_constraintTop_toBottomOf="@+id/Username" />
 
@@ -238,19 +243,22 @@ android:layout_height="match_parent">
         app:layout_constraintTop_toBottomOf="@+id/Username" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="152dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/custom_edit"
+        app:layout_constraintEnd_toEndOf="@+id/inputUserName"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/inputUserName">
 
         <AutoCompleteTextView
             android:id="@+id/inputTerm"
-            android:layout_width="152dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:inputType="none"
             android:text="@string/term" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -259,7 +267,9 @@ android:layout_height="match_parent">
         android:layout_width="152dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_edit"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/inputStudentID">
 
@@ -268,6 +278,7 @@ android:layout_height="match_parent">
             android:layout_width="152dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:inputType="none"
             android:text="@string/pillar" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -13,7 +13,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
         android:fontFamily="@font/poppins_light"
-        android:text="50.001 Introduction to Information Systems"
+        android:text="@string/_50_001_introduction_to_information_systems"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#707070"
         app:autoSizeTextType="uniform"
@@ -53,7 +53,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
@@ -61,15 +62,17 @@
         android:layout_height="44dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="91dp"
         android:autoSizeTextType="uniform"
         android:ems="10"
         android:fontFamily="@font/poppins"
-        android:hint="Java"
+        android:hint="@string/java"
         android:inputType="textMultiLine"
         android:textColorHint="#ECBC76"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        tools:ignore="HardcodedText" />
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textView14"
@@ -77,39 +80,44 @@
         android:layout_height="39dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/poppins"
         android:text="@string/filter_by"
         android:textColor="#BD7000"
         app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="118dp"
         android:layout_marginTop="116dp"
         android:text="@string/group_name"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        tools:layout_editor_absoluteX="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="229dp"
+        android:layout_height="133dp"
         android:layout_marginTop="12dp"
         android:text="@string/group_name"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
-        tools:layout_editor_absoluteX="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button11" />
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="116dp"
         android:layout_marginTop="12dp"
         android:text="@string/group_name"
-        app:layout_constraintTop_toBottomOf="@+id/button12"
-        tools:layout_editor_absoluteX="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
