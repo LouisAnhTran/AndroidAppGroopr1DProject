@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
             android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
 
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="Group Algo"
             android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
 
@@ -220,6 +220,7 @@
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:textColor="@color/black"
         app:boxStrokeWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput">
@@ -231,7 +232,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
+            android:textColor="@color/black"
             android:hint="50.004 Algorithms"
             android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
 

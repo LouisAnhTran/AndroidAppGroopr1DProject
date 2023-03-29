@@ -7,15 +7,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/module4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="@+id/button17"
         app:layout_constraintStart_toStartOf="@+id/button17"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintTop_toBottomOf="@+id/module3" />
 
     <TextView
         android:id="@+id/textView15"
@@ -66,35 +67,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/module1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
-        app:layout_constraintTop_toBottomOf="@+id/createGroupButton"
-        tools:layout_editor_absoluteX="52dp" />
+        app:layout_constraintEnd_toEndOf="@+id/createGroupButton"
+        app:layout_constraintTop_toBottomOf="@+id/createGroupButton" />
 
     <Button
         android:id="@+id/button15"
         android:layout_width="304dp"
         android:layout_height="68dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintEnd_toEndOf="@+id/module1"
+        app:layout_constraintStart_toStartOf="@+id/module1"
+        app:layout_constraintTop_toBottomOf="@+id/module1" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/module2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="@+id/button15"
         app:layout_constraintStart_toStartOf="@+id/button15"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/module1" />
 
     <Button
         android:id="@+id/button16"
@@ -102,38 +104,39 @@
         android:layout_height="72dp"
         android:layout_marginTop="4dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="@+id/module2"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintStart_toStartOf="@+id/module2"
+        app:layout_constraintTop_toBottomOf="@+id/module2" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/module3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="@+id/button16"
         app:layout_constraintStart_toStartOf="@+id/button16"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/module2" />
 
     <Button
         android:id="@+id/button17"
         android:layout_width="302dp"
         android:layout_height="73dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="@+id/module3"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+        app:layout_constraintStart_toStartOf="@+id/module3"
+        app:layout_constraintTop_toBottomOf="@+id/module3" />
 
     <Button
         android:id="@+id/button18"
         android:layout_width="306dp"
         android:layout_height="70dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/textView20"
-        app:layout_constraintStart_toStartOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintEnd_toEndOf="@+id/module4"
+        app:layout_constraintStart_toStartOf="@+id/module4"
+        app:layout_constraintTop_toBottomOf="@+id/module4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
