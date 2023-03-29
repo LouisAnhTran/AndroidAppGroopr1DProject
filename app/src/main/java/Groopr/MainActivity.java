@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ShapeFactory st=new ShapeFactory();
-        Pillar p1=st.getProduct("CSD");
-        Log.d("Test",p1.getTerm4ModuleList().toString());
+//        ShapeFactory st=new ShapeFactory();
+//        Pillar p1=st.getProduct("CSD");
+//        Log.d("Test",p1.getTerm4ModuleList().toString());
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
