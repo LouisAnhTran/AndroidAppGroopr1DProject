@@ -1,6 +1,34 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="invalid_login_information">Invalid username and password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sutd_email_address">SUTD Email Address</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your Password</string>
+    <string name="student_id">Student ID</string>
+    <string name="user_name">User Name</string>
+    <string name="enter_your_full_name">Enter your full name</string>
+    <string name="enter_your_sutd_email_address">Enter your SUTD email address</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="sign_in">Sign in</string>
+    <string name="have_an_account">Have an account?</string>
+    <string name="groopr">Groopr</string>
+    <string name="full_name">Full Name</string>
+    <string name="_100xxxx">100XXXX</string>
+    <string name="e_g_4_5">e.g. 4, 5</string>
+    <string name="computer_science_and_design">Computer Science and Design</string>
+    <string name="pillar">Pillar</string>
+    <string name="term">Term</string>
+    <string name="group_name">Group name</string>
+    <string name="filter_by">Filter By:</string>
+    <string name="recruitment">Recruitment</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account">No Account?</string>
+    <string name="enter_your_username_or_email_address">Enter your username or email address</string>
+    <string name="your_email_address">Your email address</string>
+    <string name="_50_001_introduction_to_information_systems">50.001 Introduction to Information Systems</string>
+    <string name="java">Java</string>
+    <string name="_2d_project">2D Project</string>
     <string-array name="modules_array">
         <item>50.001 Information Systems and Programming</item>
         <item>50.002 Computation Structures</item>
@@ -18,5 +46,16 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+    </string-array>
+    <string-array name="term_array">
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="pillar_array">
+        <item>CSD</item>
+        <item>DAI</item>
+        <item>ASD</item>
+        <item>EPD</item>
+        <item>ESD</item>
     </string-array>
 </resources>

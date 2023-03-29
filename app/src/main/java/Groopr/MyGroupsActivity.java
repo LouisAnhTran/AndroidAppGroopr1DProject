@@ -57,7 +57,7 @@ public class MyGroupsActivity extends AppCompatActivity {
             }
         });
 
-        // Select module headers to show depeneding on pillar and term
+        // Select module headers to show depending on pillar and term
 
         DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
