@@ -1,12 +1,17 @@
 package Groopr;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +48,15 @@ public class SignUp extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
 
+    /** drop down menu code **/
+    final String[] term = {"4", "5"};
+    final String[] pillar = {"CSD", "DAI", "ASD", "EPD", "ESD"};
+
+    private AutoCompleteTextView dropDownTerm;
+    private AutoCompleteTextView dropDownPillar;
+    ArrayAdapter<String> adapterTerm;
+    ArrayAdapter<String> adapterPillar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +66,38 @@ public class SignUp extends AppCompatActivity {
         editTextFullName = (EditText)findViewById(R.id.inputPersonName);
         editTextStudentID = (EditText)findViewById(R.id.inputStudentID);
         editTextUserName = (EditText)findViewById(R.id.inputUserName);
-        editTextTerm = (EditText)findViewById(R.id.inputTerm);
-        editTextPillar = (EditText)findViewById(R.id.inputPillar);
+        dropDownTerm = findViewById(R.id.inputTerm);
+        dropDownPillar = findViewById(R.id.inputPillar);
+        // editTextTerm = (EditText)findViewById(R.id.inputTerm);
+        // editTextPillar = (EditText)findViewById(R.id.inputPillar);
         editTextPassWord = (EditText)findViewById(R.id.inputPassword);
         clickToSignUp = (Button)findViewById(R.id.buttonToSignUp);
         haveAccount=(TextView) findViewById(R.id.haveaccount2);
         progressDialog=new ProgressDialog(this);
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
+
+        /** drop down code **/
+
+        adapterTerm = new ArrayAdapter<>(this, R.layout.list_items, term);
+        dropDownTerm.setAdapter(adapterTerm);
+        dropDownTerm.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String item = adapterView.getItemAtPosition(position).toString();
+                Toast.makeText(SignUp.this, "Term: " + item, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        adapterPillar = new ArrayAdapter<>(this, R.layout.list_items, pillar);
+        dropDownPillar.setAdapter(adapterPillar);
+        dropDownPillar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                String item = adapterView.getItemAtPosition(position).toString();
+                Toast.makeText(SignUp.this, "Pillar: " + item, Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //        Navigate to sign in page if have account already
         haveAccount.setOnClickListener(new View.OnClickListener() {
@@ -120,8 +158,8 @@ public class SignUp extends AppCompatActivity {
         String fullName=editTextFullName.getText().toString();
         String studentID=editTextStudentID.getText().toString();
         String userName=editTextUserName.getText().toString();
-        String term=editTextTerm.getText().toString();
-        String pillar=editTextPillar.getText().toString();
+        String term=dropDownTerm.getText().toString();
+        String pillar=dropDownPillar.getText().toString();
         String password=editTextPassWord.getText().toString();
         boolean check=true;
         if(!email.matches(this.emailPattern)){
@@ -156,7 +194,7 @@ public class SignUp extends AppCompatActivity {
                     if(task.isSuccessful()){
                         progressDialog.dismiss();
                         Toast.makeText(SignUp.this,"Registration successful",Toast.LENGTH_LONG).show();
-                        mDatabase.child("Student").child(mAuth.getUid()).setValue(new Student(editTextStudentID.getText().toString(),editTextFullName.getText().toString(),editTextPillar.getText().toString(),editTextTerm.getText().toString(),editTextEmail.getText().toString(),editTextUserName.getText().toString(),editTextPassWord.getText().toString()));
+                        mDatabase.child("Student").child(mAuth.getUid()).setValue(new Student(editTextStudentID.getText().toString(),editTextFullName.getText().toString(),dropDownPillar.getText().toString(),dropDownTerm.getText().toString(),editTextEmail.getText().toString(),editTextUserName.getText().toString(),editTextPassWord.getText().toString()));
                         Intent intent=new Intent(SignUp.this,MainActivity.class);
                         startActivity(intent);
                     }

@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:background="@drawable/picture1"
-android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/picture1"
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/buttonToSignUp"
         android:layout_width="272dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="64dp"
         android:backgroundTint="@color/orangeApp"
         android:fontFamily="@font/poppins"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/inputEmail"
-        android:layout_width="325dp"
-        android:layout_height="60dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="43dp"
+        android:autofillHints=""
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color"
         android:drawablePadding="12dp"
-        android:hint="SUTD Email Address"
-        android:textColorHint="#808080"
+        android:hint="@string/sutd_email_address"
         android:inputType="textEmailAddress"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/haveaccount"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Email"
         app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="325dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="43dp"
+        android:autofillHints=""
         android:background="@drawable/custom_edit"
         android:drawableStart="@drawable/change_icon_color_lock"
         android:drawablePadding="12dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Email"
         app:layout_constraintTop_toBottomOf="@+id/PW" />
 
@@ -62,19 +64,19 @@ android:layout_height="match_parent">
         android:id="@+id/PW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="66dp"
         android:fontFamily="@font/poppins"
-        android:text="Enter your Password"
-        app:layout_constraintStart_toStartOf="@+id/ID"
-        app:layout_constraintTop_toBottomOf="@+id/ID" />
+        android:text="@string/enter_your_password"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="66dp"
         android:fontFamily="@font/poppins"
-        android:text="Student ID"
+        android:text="@string/student_id"
         app:layout_constraintStart_toStartOf="@+id/Name"
         app:layout_constraintTop_toBottomOf="@+id/Name" />
 
@@ -82,41 +84,41 @@ android:layout_height="match_parent">
         android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="66dp"
         android:fontFamily="@font/poppins"
-        android:text="User Name"
+        android:text="@string/user_name"
         app:layout_constraintStart_toEndOf="@+id/ID"
         app:layout_constraintTop_toBottomOf="@+id/Name" />
 
     <TextView
-    android:id="@+id/Name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="76dp"
-    android:fontFamily="@font/poppins"
-    android:text="Enter your full name"
-    app:layout_constraintStart_toStartOf="@+id/Email"
-    app:layout_constraintTop_toBottomOf="@+id/Email" />
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/enter_your_full_name"
+        app:layout_constraintStart_toStartOf="@+id/Email"
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
-<TextView
-    android:id="@+id/Email"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="24dp"
-    android:fontFamily="@font/poppins"
-    android:text="Enter your SUTD email address"
-    app:layout_constraintStart_toStartOf="@+id/signuptext"
-    app:layout_constraintTop_toBottomOf="@+id/signuptext" />
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/enter_your_sutd_email_address"
+        app:layout_constraintStart_toStartOf="@+id/signuptext"
+        app:layout_constraintTop_toBottomOf="@+id/signuptext" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/poppins"
-        android:text="Welcome to"
+        android:text="@string/welcome_to"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -125,116 +127,163 @@ android:layout_height="match_parent">
         android:id="@+id/signuptext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintStart_toStartOf="@+id/welcome"
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <TextView
-    android:id="@+id/haveaccount2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="72dp"
-    android:fontFamily="@font/poppins"
-    android:text="Sign in"
-    android:textColor="@color/orangeApp"
-    app:layout_constraintStart_toStartOf="@+id/haveaccount"
-    app:layout_constraintTop_toTopOf="parent" />
-
-<TextView
-    android:id="@+id/haveaccount"
-    android:layout_width="148dp"
-    android:layout_height="23dp"
-    android:layout_marginTop="52dp"
-    android:layout_marginEnd="44dp"
-    android:fontFamily="@font/poppins"
-    android:text="Have an account?"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/haveaccount2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/poppins"
+        android:text="Sign in"
+        android:textColor="@color/orangeApp"
+        app:layout_constraintStart_toStartOf="@+id/haveaccount"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-    android:id="@+id/welcome2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
-    android:fontFamily="@font/poppins_semibold"
-    android:text="Groopr"
-    android:textColor="@color/orangeApp"
-    app:layout_constraintStart_toEndOf="@+id/welcome"
-    app:layout_constraintTop_toTopOf="@+id/welcome"
-    app:layout_constraintStart_toStartOf="@+id/Email"
-    app:layout_constraintTop_toBottomOf="@+id/Name" />
+        android:id="@+id/haveaccount"
+        android:layout_width="148dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/have_an_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <TextView
+        android:id="@+id/welcome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/groopr"
+        android:textColor="@color/orangeApp"
+        app:layout_constraintStart_toEndOf="@+id/welcome"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputPersonName"
-        android:layout_width="325dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/custom_edit"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
     <EditText
         android:id="@+id/inputStudentID"
-        android:layout_width="154dp"
-        android:layout_height="60dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/custom_edit"
         android:ems="10"
-        android:hint="100XXXX"
-        android:textColorHint="#808080"
+        android:hint="@string/_100xxxx"
         android:inputType="number"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toStartOf="@+id/inputUserName"
         app:layout_constraintStart_toStartOf="@+id/Email"
         app:layout_constraintTop_toBottomOf="@+id/ID" />
 
     <EditText
         android:id="@+id/inputUserName"
-        android:layout_width="154dp"
-        android:layout_height="60dp"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="43dp"
         android:background="@drawable/custom_edit"
         android:ems="10"
-        android:hint="User Name"
-        android:textColorHint="#808080"
+        android:hint="@string/user_name"
         android:inputType="textPersonName"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColorHint="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Username"
         app:layout_constraintTop_toBottomOf="@+id/Username" />
 
-    <EditText
-        android:id="@+id/inputTerm"
-        android:layout_width="154dp"
-        android:layout_height="60dp"
-        android:hint="4, 5, ...."
-        app:layout_constraintStart_toStartOf="@+id/inputStudentID"
-        app:layout_constraintTop_toBottomOf="@+id/inputStudentID" />
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/pillar"
+        app:layout_constraintStart_toStartOf="@+id/ID"
+        app:layout_constraintTop_toBottomOf="@+id/ID" />
 
-    <EditText
-        android:id="@+id/inputPillar"
-        android:layout_width="154dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:hint="CSD, ESD, ASD,.."
-        app:layout_constraintStart_toStartOf="@+id/inputUserName"
-        app:layout_constraintTop_toBottomOf="@+id/inputStudentID" />
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/term"
+        app:layout_constraintStart_toStartOf="@+id/Username"
+        app:layout_constraintTop_toBottomOf="@+id/Username" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/custom_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/inputUserName">
+
+        <AutoCompleteTextView
+            android:id="@+id/inputTerm"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="@string/term" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="152dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/custom_edit"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/inputStudentID">
+
+        <AutoCompleteTextView
+            android:id="@+id/inputPillar"
+            android:layout_width="152dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="@string/pillar" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

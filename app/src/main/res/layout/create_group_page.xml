@@ -101,7 +101,7 @@
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
-            android:textSize="15sp" />
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,7 +123,7 @@
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="Group Algo"
-            android:textSize="15sp" />
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,7 +160,7 @@
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:editable="false"
-            android:textSize="15sp" />
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -183,7 +183,7 @@
             android:backgroundTint="@color/black"
 
             android:hint="Group Algo"
-            android:textSize="15sp" />
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -232,8 +232,8 @@
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
-            android:editable="false"
-            android:textSize="15sp" />
+            android:hint="50.004 Algorithms"
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -283,8 +283,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/EditSkillsInput"
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
