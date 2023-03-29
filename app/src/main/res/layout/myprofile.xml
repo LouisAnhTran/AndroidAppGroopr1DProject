@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3_groopr">
+
+
+    <TextView
+        android:id="@+id/MyProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Profile"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/MyProfile2"
+        app:layout_constraintStart_toStartOf="@+id/MyProfile2" />
+
+    <TextView
+        android:id="@+id/MyProfile2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View and edit your details"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/red_border"
+        android:clipToOutline="true"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MyProfile2"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Norman Lee \n @norml"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/AboutYou"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="330dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/AboutYouInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_border"
+            android:backgroundTint="@color/black"
+            android:hint="Likes SUTD canteen"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/AboutYouHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About You"
+        app:layout_constraintBottom_toTopOf="@+id/AboutYou"
+        app:layout_constraintStart_toStartOf="@+id/AboutYou" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/YourSkills"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="230dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/YourSkillsInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_border"
+            android:backgroundTint="@color/black"
+            android:hint="Firebase, JetPack"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/YourSkillsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Skills"
+        app:layout_constraintBottom_toTopOf="@+id/YourSkills"
+        app:layout_constraintStart_toStartOf="@+id/YourSkills" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Email"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="130dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EmailInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_border"
+            android:backgroundTint="@color/black"
+            android:hint="ho_lee_fuk@mymail.sutd.edu.sg"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/EmailHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintStart_toStartOf="@+id/Email" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ID"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/IDInput"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_border"
+            android:backgroundTint="@color/black"
+            android:hint="10001234"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/IDHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        app:layout_constraintBottom_toTopOf="@+id/ID"
+        app:layout_constraintStart_toStartOf="@+id/ID" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
