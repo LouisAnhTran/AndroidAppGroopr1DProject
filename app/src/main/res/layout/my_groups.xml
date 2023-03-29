@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView15" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/createGroupButton"
         android:layout_width="298dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
@@ -73,7 +73,7 @@
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
-        app:layout_constraintTop_toBottomOf="@+id/button14"
+        app:layout_constraintTop_toBottomOf="@+id/createGroupButton"
         tools:layout_editor_absoluteX="52dp" />
 
     <Button
