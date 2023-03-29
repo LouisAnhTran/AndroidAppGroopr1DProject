@@ -58,4 +58,5 @@
         <item>EPD</item>
         <item>ESD</item>
     </string-array>
+    <string name="no_project">You have yet to form a group. Click to find a group ASAP.</string>
 </resources>

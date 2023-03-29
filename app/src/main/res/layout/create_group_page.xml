@@ -14,7 +14,7 @@
 
         android:text="Create Groups"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -101,7 +101,7 @@
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,7 +123,7 @@
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="Group Algo"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,9 +159,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-
-            android:hint="6"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:editable="false"
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,7 +183,7 @@
             android:backgroundTint="@color/black"
 
             android:hint="Group Algo"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -234,7 +233,7 @@
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="50.004 Algorithms"
-            android:textSize="15dp"></com.google.android.material.textfield.TextInputEditText>
+            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -276,6 +275,7 @@
         android:id="@+id/spinner5"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:entries="@array/capacity_array"
         app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
         app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
         app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"

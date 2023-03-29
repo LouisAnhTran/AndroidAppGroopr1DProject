@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.Groopr.R;
@@ -26,13 +27,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import Groopr.Model.Project;
+import Groopr.Model.Student;
 
 
 // TESTTEST
-public class CreateGroupActivity extends AppCompatActivity{
+public class CreateGroupActivity extends AppCompatActivity {
     //EditText groupNameInput, inputCapacity, inputGroupDescription, inputGroupSkill;
 
-    TextInputEditText selectModule, groupNameInput, inputCapacity, inputGroupDescription, inputGroupSkill;
+    TextInputEditText selectModule, groupNameInput, inputGroupDescription, inputGroupSkill;
+    Spinner inputCapacity;
     Button createGroupFinalButton;
 
     Spinner modDropDownMenu;
@@ -40,6 +43,7 @@ public class CreateGroupActivity extends AppCompatActivity{
     private DatabaseReference mDatabase;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid = user.getUid();
+    DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class CreateGroupActivity extends AppCompatActivity{
         setContentView(R.layout.create_group_page);
 
         groupNameInput = findViewById(R.id.groupNameInput);
-        inputCapacity = findViewById(R.id.inputCapacity);
+        inputCapacity = findViewById(R.id.spinner5);
         inputGroupDescription = findViewById(R.id.inputGroupDescription);
         inputGroupSkill = findViewById(R.id.inputGroupSkill);
         selectModule = findViewById(R.id.selectModule);
@@ -60,7 +64,10 @@ public class CreateGroupActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 createGroup();
+                Intent intent = new Intent(CreateGroupActivity.this, MyGroupsActivity.class);
+                startActivity(intent);
             }
+
         });
 
         // Adjust options of modDropDownMenu
@@ -73,25 +80,25 @@ public class CreateGroupActivity extends AppCompatActivity{
                 String term = dataSnapshot.child("term").getValue().toString();
 
                 // Create an array of options based on the pillar and term attributes
-                String[] options;
+                ArrayList<String> options;
                 if (term == "4") {
                     if (pillar.equals("CSD")) {
-                        options = new String[] {"50.001 Information Systems & Programming", "50.002 Computation Structures", "50.004 Algorithms"};
+                        options = new ArrayList<>(Arrays.asList("50.001 Information Systems & Programming", "50.002 Computation Structures", "50.004 Algorithms"));
                     } else {
-                        options = new String[]{};
+                        options = new ArrayList<>();
                     }
                 } else if (term == "5") {
                     if (pillar.equals("CSD")) {
-                        options = new String[] {"50.003 Elements of Software Construction", "50.005 Computer System Engineering"};
+                        options = new ArrayList<>(Arrays.asList("50.003 Elements of Software Construction", "50.005 Computer System Engineering"));
                     } else {
-                        options = new String[] {};
+                        options = new ArrayList<>();
                     }
                 } else {
-                    options = new String[] {};
+                    options = new ArrayList<>();
                 }
 
                 // Set the options as the data source for the drop-down menu field
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreateGroupActivity.this, android.R.layout.simple_spinner_dropdown_item, options);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(CreateGroupActivity.this, android.R.layout.simple_spinner_dropdown_item, options);
                 modDropDownMenu.setAdapter(adapter);
             }
 
@@ -106,7 +113,7 @@ public class CreateGroupActivity extends AppCompatActivity{
 
     void createGroup(){
         String groupName = groupNameInput.getText().toString();
-        Integer capacity = Integer.parseInt(inputCapacity.getText().toString());
+        Integer capacity = Integer.parseInt(inputCapacity.getSelectedItem().toString());
         String groupDescription = inputGroupDescription.getText().toString();
         String groupSkill = inputGroupSkill.getText().toString();
         String moduleID = selectModule.getText().toString();
@@ -117,8 +124,7 @@ public class CreateGroupActivity extends AppCompatActivity{
             return;
         }
         // If validated, proceed to create group
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
-        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get the user's email address
@@ -140,8 +146,23 @@ public class CreateGroupActivity extends AppCompatActivity{
     void createGroupInFirebase(String groupName, String moduleID, List<String> studentList, int capacity, String groupDescription, String groupSkill, String currentID){
 
         Project p = new Project(groupName, moduleID, studentList, capacity, groupDescription, groupSkill, currentID);
-        mDatabase.child("Project").push().setValue(p);
+        String key = mDatabase.child("Project").push().getKey();
+        mDatabase.child("Project").child(key).setValue(p);
+        studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Student student = snapshot.getValue(Student.class);
+                List<String> currentProjectList = student.getProjectList();
+                currentProjectList.add(key);
+                student.setProjectList(currentProjectList);
+                studentRef.child("projectList").setValue(student.getProjectList());
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     boolean validateData(String groupName, String groupDescription, String groupSkill){
@@ -160,6 +181,8 @@ public class CreateGroupActivity extends AppCompatActivity{
         }
         return true;
     }
+
+
 }
 
 

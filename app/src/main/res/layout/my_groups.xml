@@ -14,8 +14,8 @@
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
-        app:layout_constraintEnd_toEndOf="@+id/button17"
-        app:layout_constraintStart_toStartOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="@+id/module3Button"
+        app:layout_constraintStart_toStartOf="@+id/module3Button"
         app:layout_constraintTop_toBottomOf="@+id/module3" />
 
     <TextView
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/createGroupButton" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/module1Button"
         android:layout_width="304dp"
         android:layout_height="68dp"
         android:text="Button"
@@ -94,12 +94,12 @@
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
-        app:layout_constraintEnd_toEndOf="@+id/button15"
-        app:layout_constraintStart_toStartOf="@+id/button15"
+        app:layout_constraintEnd_toEndOf="@+id/module1Button"
+        app:layout_constraintStart_toStartOf="@+id/module1Button"
         app:layout_constraintTop_toBottomOf="@+id/module1" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/module2Button"
         android:layout_width="299dp"
         android:layout_height="72dp"
         android:layout_marginTop="4dp"
@@ -117,12 +117,12 @@
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
-        app:layout_constraintEnd_toEndOf="@+id/button16"
-        app:layout_constraintStart_toStartOf="@+id/button16"
+        app:layout_constraintEnd_toEndOf="@+id/module2Button"
+        app:layout_constraintStart_toStartOf="@+id/module2Button"
         app:layout_constraintTop_toBottomOf="@+id/module2" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/module3Button"
         android:layout_width="302dp"
         android:layout_height="73dp"
         android:text="Button"
@@ -132,11 +132,12 @@
         app:layout_constraintTop_toBottomOf="@+id/module3" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/module4Button"
         android:layout_width="306dp"
         android:layout_height="70dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="@+id/module4"
+        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="@+id/module4"
         app:layout_constraintTop_toBottomOf="@+id/module4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
