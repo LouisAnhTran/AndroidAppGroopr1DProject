@@ -283,8 +283,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/EditSkillsInput"
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"

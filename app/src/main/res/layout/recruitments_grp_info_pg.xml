@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/recruitments_info_pg">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="249dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/recruitment"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="214dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/_50_001_introduction_to_information_systems"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#707070"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Group Name"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#BD7000"
+        android:textAlignment="center"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="252dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Module name"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#BD7000"
+        android:textAlignment="center"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Group description ---------------------------"
+        android:textColor="#BD7000"
+        android:textAlignment="center"
+        android:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Members:"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Looking For:"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="550dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interested?"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="628dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
