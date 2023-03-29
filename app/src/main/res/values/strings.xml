@@ -22,4 +22,22 @@
     <string name="group_name">Group name</string>
     <string name="filter_by">Filter By:</string>
     <string name="recruitment">Recruitment</string>
+    <string-array name="modules_array">
+        <item>50.001 Information Systems and Programming</item>
+        <item>50.002 Computation Structures</item>
+        <item>50.003 Elements of Software Construction</item>
+        <item>50.004 Algorithms</item>
+        <item>50.005 Computer System Engineering</item>
+    </string-array>
+    <string-array name="capacity_array">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
 </resources>
