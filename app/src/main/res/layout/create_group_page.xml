@@ -267,9 +267,10 @@
         app:layout_constraintTop_toTopOf="@+id/EditMembersInput" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/CapacitySpinner"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:entries="@array/capacity_array"
         app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
         app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
         app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"
