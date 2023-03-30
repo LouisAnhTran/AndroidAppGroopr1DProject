@@ -1,5 +1,6 @@
 package Groopr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,6 +53,14 @@ public class RecruimentHomePage extends AppCompatActivity {
         mDatabase= FirebaseDatabase.getInstance().getReference();
         user= FirebaseAuth.getInstance().getCurrentUser();
 
+        module1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(RecruimentHomePage.this,RecruimentShowGroup.class);
+                startActivity(intent);
+            }
+        });
+
         mDatabase.child("Student").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -65,13 +74,18 @@ public class RecruimentHomePage extends AppCompatActivity {
                 b1.add(module3);
                 b1.add(module4);
 
+                for(Button b: b1){
+                    b.setEnabled(true);
+                }
+
                 int i=0;
                 for(String ob:pl.getModuleList()){
                     b1.get(i).setText(ob);
                     i++;
                 }
                 for(int j=i;j<b1.size();j++){
-                    b1.get(j).setText("You only have "+pl.getModuleList().size());
+                    b1.get(j).setText("You only have "+pl.getModuleList().size() + " core modules");
+                    b1.get(j).setEnabled(false);
                 }
             }
 

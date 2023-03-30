@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
 
+        editTextEmail.setText("");
+        editTextPassWord.setText("");
+
         signUpNavigate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
