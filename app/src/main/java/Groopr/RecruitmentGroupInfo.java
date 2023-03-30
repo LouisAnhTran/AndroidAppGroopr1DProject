@@ -26,10 +26,10 @@ import Groopr.Model.RecruitmentAdapter;
 
 public class RecruitmentGroupInfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    TextView grp_name = findViewById(R.id.grp_name);
-    TextView mod_name = findViewById(R.id.mod_name);
-    TextView grp_desc = findViewById(R.id.grp_desc);
-    Button apply = findViewById(R.id.apply);
+    TextView grp_name;
+    TextView mod_name;
+    TextView grp_desc;
+    Button apply;
 
     String projectID;
 
@@ -37,6 +37,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
+
+        grp_name = findViewById(R.id.grp_name);
+        mod_name = findViewById(R.id.mod_name);
+        grp_desc = findViewById(R.id.grp_desc);
+        apply = findViewById(R.id.apply);
 
         /** #TODO Fill up the somePage class
         apply.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +73,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
                     // List view stuff
                 }
 
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
