@@ -156,7 +156,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputCapacity"
             android:layout_width="130dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:editable="false"

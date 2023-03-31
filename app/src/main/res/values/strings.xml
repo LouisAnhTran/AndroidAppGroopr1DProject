@@ -59,4 +59,9 @@
         <item>ESD</item>
     </string-array>
     <string name="no_project">You have yet to form a group. Click to find a group ASAP.</string>
+    <string name="looking_for">Looking For:</string>
+    <string name="interested">Interested?</string>
+    <string name="apply">Apply</string>
+    <string name="members">Members:</string>
+    <string name="module_name">Module name</string>
 </resources>

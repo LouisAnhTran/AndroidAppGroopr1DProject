@@ -36,35 +36,39 @@
         android:id="@+id/grp_name"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:text="Group Name"
-        android:textColor="#BD7000"
-        android:textAlignment="center"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/group_name"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="252dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/mod_name"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Module name"
-        android:textColor="#BD7000"
-        android:textAlignment="center"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/module_name"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/grp_name" />
 
     <TextView
         android:id="@+id/grp_desc"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Group description ---------------------------"
-        android:textColor="#BD7000"
-        android:textAlignment="center"
+        android:layout_width="204dp"
+        android:layout_height="35dp"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins"
+        android:text="Group description -----testtesttest----------------------"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mod_name" />
@@ -74,7 +78,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Members:"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/members"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="#BD7000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,65 +92,115 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Red"
         app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="494dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Purple"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="494dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Yellow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toEndOf="@+id/textView27"
-        tools:layout_editor_absoluteY="494dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Looking For:"
+        android:layout_marginTop="23dp"
+        android:text="@string/looking_for"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="#BD7000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="550dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Interested?"
+        android:layout_width="101dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/interested"
         android:textAlignment="center"
         android:textColor="#BD7000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="628dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/apply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apply"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:text="@string/apply"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="121dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        app:srcCompat="@drawable/clothes"
+        android:contentDescription="Group Pic" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:srcCompat="@drawable/teletubbyred"
+        android:contentDescription="red pfp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grp_desc"
+        app:srcCompat="@drawable/teletubbypurple"
+        android:contentDescription="purple pfp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:srcCompat="@drawable/teletubby_yellow"
+        android:contentDescription="yellow pfp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

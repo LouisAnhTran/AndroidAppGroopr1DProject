@@ -141,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:fontFamily="@font/poppins"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textColor="@color/orangeApp"
         app:layout_constraintStart_toStartOf="@+id/haveaccount"
         app:layout_constraintTop_toTopOf="parent" />
@@ -186,7 +186,8 @@
         android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/inputStudentID"
@@ -204,7 +205,8 @@
         android:textColorHint="#808080"
         app:layout_constraintEnd_toStartOf="@+id/inputUserName"
         app:layout_constraintStart_toStartOf="@+id/Email"
-        app:layout_constraintTop_toBottomOf="@+id/ID" />
+        app:layout_constraintTop_toBottomOf="@+id/ID"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/inputUserName"
@@ -222,7 +224,8 @@
         android:textColorHint="#808080"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Username"
-        app:layout_constraintTop_toBottomOf="@+id/Username" />
+        app:layout_constraintTop_toBottomOf="@+id/Username"
+        android:autofillHints="" />
 
     <TextView
         android:id="@+id/textView9"
