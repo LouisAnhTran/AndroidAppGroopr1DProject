@@ -131,7 +131,7 @@ public class CreateGroupActivity extends AppCompatActivity {
                 String studentID = dataSnapshot.child("studentID").getValue(String.class);
                 Log.d("Test UID", studentID);
                 // Use the studentID
-                createGroupInFirebase(groupName, moduleID, new ArrayList<>(Arrays.asList(studentID)), capacity, groupDescription, groupSkill, studentID);
+                createGroupInFirebase(groupName, moduleID, new ArrayList<>(Arrays.asList(studentID)), capacity, groupDescription, groupSkill, studentID,new ArrayList<>(Arrays.asList("")));
             }
 
             @Override
@@ -143,9 +143,9 @@ public class CreateGroupActivity extends AppCompatActivity {
 
     }
 
-    void createGroupInFirebase(String groupName, String moduleID, List<String> studentList, int capacity, String groupDescription, String groupSkill, String currentID){
+    void createGroupInFirebase(String groupName, String moduleID, List<String> studentList, int capacity, String groupDescription, String groupSkill, String currentID,ArrayList<String> applicationsStudentIDList){
 
-        Project p = new Project(groupName, moduleID, studentList, capacity, groupDescription, groupSkill, currentID);
+        Project p = new Project(groupName, moduleID, studentList, capacity, groupDescription, groupSkill, currentID,applicationsStudentIDList);
         String key = mDatabase.child("Project").push().getKey();
         mDatabase.child("Project").child(key).setValue(p);
         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {

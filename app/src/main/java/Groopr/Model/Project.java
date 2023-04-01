@@ -1,5 +1,6 @@
 package Groopr.Model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ public class Project {
     private int maxNumberOfMember;
     private String message;
     private String skillNeeded;
+
+    private ArrayList<String> applicationsList;
 
     private String teamLeaderId;
 
@@ -73,7 +76,15 @@ public class Project {
         this.studentList=new ArrayList<String>();
     }
 
-    public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded,String teamLeaderID) {
+    public ArrayList<String> getApplicationsList() {
+        return applicationsList;
+    }
+
+    public void setApplicationsList(ArrayList<String> applicationsList) {
+        this.applicationsList = applicationsList;
+    }
+
+    public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
         this.projectName = projectName;
         this.moduleID = moduleID;
         this.studentList = studentList;
@@ -81,5 +92,6 @@ public class Project {
         this.message = message;
         this.skillNeeded = skillNeeded;
         this.teamLeaderId=teamLeaderID;
+        this.applicationsList=applicationsList;
     }
 }
