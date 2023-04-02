@@ -18,9 +18,21 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
     Context context;
     ArrayList<Project> listProject;
 
+    ArrayList<Integer> listImage;
+
+    int randomNumber;
+
+
     public RecruitmentAdapter(Context context, ArrayList<Project> projectList){
         this.context=context;
         this.listProject=projectList;
+        listImage=new ArrayList<Integer>();
+        listImage.add(R.drawable.robot1);
+        listImage.add(R.drawable.robot2);
+        listImage.add(R.drawable.robot3);
+        listImage.add(R.drawable.robot4);
+        listImage.add(R.drawable.robot5);
+        listImage.add(R.drawable.robot6);
     }
 
     @NonNull
@@ -40,7 +52,7 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
         holder.textViewShowSkills.setText(this.listProject.get(position).getSkillNeeded());
         holder.textViewgroupDescription.setText(this.listProject.get(position).getMessage());
         holder.textViewNumberMembers.setText(String.valueOf(this.listProject.get(position).getStudentList().size()));
-
+        holder.imageGroup.setImageResource(listImage.get(position%listImage.size()));
     }
 
     @Override
