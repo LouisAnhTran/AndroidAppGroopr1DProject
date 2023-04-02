@@ -131,7 +131,7 @@ public class CreateGroupActivity extends AppCompatActivity {
                 String studentID = dataSnapshot.child("studentID").getValue(String.class);
                 Log.d("Test UID", studentID);
                 // Use the studentID
-                createGroupInFirebase(groupName, moduleID, new ArrayList<>(Arrays.asList(studentID)), capacity, groupDescription, groupSkill, studentID,new ArrayList<>(Arrays.asList("")));
+                createGroupInFirebase(groupName, moduleID, new ArrayList<>(Arrays.asList(uid)), capacity, groupDescription, groupSkill, uid,new ArrayList<>(Arrays.asList("")));
             }
 
             @Override
