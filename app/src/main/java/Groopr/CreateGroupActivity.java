@@ -130,7 +130,7 @@ public class CreateGroupActivity extends AppCompatActivity {
                 // Get the user's email address
                 String studentID = dataSnapshot.child("studentID").getValue(String.class);
                 Log.d("Test UID", studentID);
-                // Use the studentID
+                // Use the uid instead of studentID
                 createGroupInFirebase(groupName, moduleID, new ArrayList<>(Arrays.asList(uid)), capacity, groupDescription, groupSkill, uid,new ArrayList<>(Arrays.asList("")));
             }
 
