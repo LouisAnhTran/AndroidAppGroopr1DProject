@@ -12,22 +12,21 @@
         android:layout_height="37dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/_50_001_introduction_to_information_systems"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/white"
+        android:textColor="#707070"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
-        tools:textColor="@color/white" />
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="249dp"
         android:layout_height="84dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/poppins"
         android:text="@string/recruitment"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
