@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/groupName"
+                android:id="@+id/moduleID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -45,18 +45,18 @@
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@+id/groupName"
+                app:layout_constraintStart_toEndOf="@+id/moduleID"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/groupDescription"
+                android:id="@+id/groupName"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="TextView"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="@+id/groupName"
-                app:layout_constraintTop_toBottomOf="@+id/groupName" />
+                app:layout_constraintStart_toStartOf="@+id/moduleID"
+                app:layout_constraintTop_toBottomOf="@+id/moduleID" />
 
             <TextView
                 android:id="@+id/skillNeeded"
@@ -70,7 +70,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/groupPhoto"
-                app:layout_constraintTop_toBottomOf="@+id/groupDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/groupName" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/groupPhoto"

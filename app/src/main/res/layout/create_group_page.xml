@@ -230,7 +230,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/EditModuleInput"
         app:layout_constraintEnd_toEndOf="@+id/EditModuleInput"
-        app:layout_constraintTop_toTopOf="@+id/EditModuleInput" />
+        app:layout_constraintTop_toTopOf="@+id/EditModuleInput"
+        />
 
     <Spinner
         android:id="@+id/spinner5"

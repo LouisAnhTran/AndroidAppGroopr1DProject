@@ -68,6 +68,8 @@ public class Project {
         return skillNeeded;
     }
 
+    public Integer getNumberOfMembers() {return this.studentList.size();}
+
     public void setSkillNeeded(String skillNeeded) {
         this.skillNeeded = skillNeeded;
     }

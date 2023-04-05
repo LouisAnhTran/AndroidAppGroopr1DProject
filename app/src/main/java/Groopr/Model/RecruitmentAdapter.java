@@ -74,8 +74,8 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
             super(itemView);
 
             imageGroup=itemView.findViewById(R.id.groupPhoto);
-            textViewGroupName=itemView.findViewById(R.id.groupName);
-            textViewgroupDescription=itemView.findViewById(R.id.groupDescription);
+            textViewGroupName=itemView.findViewById(R.id.moduleID);
+            textViewgroupDescription=itemView.findViewById(R.id.groupName);
             textViewNumberMembers=itemView.findViewById(R.id.groupMember);
             textViewShowSkills=itemView.findViewById(R.id.skillNeeded);
 

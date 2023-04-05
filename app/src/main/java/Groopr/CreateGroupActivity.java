@@ -22,10 +22,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import Groopr.Model.FactoryDesignForPillar.Pillar;
+import Groopr.Model.FactoryDesignForPillar.ShapeFactory;
 import Groopr.Model.Project;
 import Groopr.Model.Student;
 
@@ -70,7 +73,7 @@ public class CreateGroupActivity extends AppCompatActivity {
 
         });
 
-        // Adjust options of modDropDownMenu
+        // Adjust options of modDropDownMenu spinner
         DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -78,25 +81,12 @@ public class CreateGroupActivity extends AppCompatActivity {
                 // Retrieve the pillar and term attributes from the Student node
                 String pillar = dataSnapshot.child("pillar").getValue().toString();
                 String term = dataSnapshot.child("term").getValue().toString();
-
+                ShapeFactory st = new ShapeFactory();
+                Pillar p = st.getProduct(pillar, term);
+                List<String> moduleList = p.getModuleList();
                 // Create an array of options based on the pillar and term attributes
                 ArrayList<String> options;
-                if (term == "4") {
-                    if (pillar.equals("CSD")) {
-                        options = new ArrayList<>(Arrays.asList("50.001 Information Systems & Programming", "50.002 Computation Structures", "50.004 Algorithms"));
-                    } else {
-                        options = new ArrayList<>();
-                    }
-                } else if (term == "5") {
-                    if (pillar.equals("CSD")) {
-                        options = new ArrayList<>(Arrays.asList("50.003 Elements of Software Construction", "50.005 Computer System Engineering"));
-                    } else {
-                        options = new ArrayList<>();
-                    }
-                } else {
-                    options = new ArrayList<>();
-                }
-
+                options = (ArrayList)moduleList;
                 // Set the options as the data source for the drop-down menu field
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(CreateGroupActivity.this, android.R.layout.simple_spinner_dropdown_item, options);
                 modDropDownMenu.setAdapter(adapter);
@@ -116,7 +106,7 @@ public class CreateGroupActivity extends AppCompatActivity {
         Integer capacity = Integer.parseInt(inputCapacity.getSelectedItem().toString());
         String groupDescription = inputGroupDescription.getText().toString();
         String groupSkill = inputGroupSkill.getText().toString();
-        String moduleID = selectModule.getText().toString();
+        String moduleID = modDropDownMenu.getSelectedItem().toString();
 
 
         boolean isValidated = validateData(groupName, groupDescription, groupSkill);

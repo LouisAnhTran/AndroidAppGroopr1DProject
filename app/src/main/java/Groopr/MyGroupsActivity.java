@@ -2,12 +2,15 @@ package Groopr;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Groopr.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,27 +29,30 @@ import java.util.Map;
 
 import Groopr.Model.FactoryDesignForPillar.Pillar;
 import Groopr.Model.FactoryDesignForPillar.ShapeFactory;
+import Groopr.Model.MyGroupsAdapter;
+import Groopr.Model.Project;
 import Groopr.Model.Student;
 
 public class MyGroupsActivity extends AppCompatActivity {
+    RecyclerView recyclerView;
     Button createGroupButton;
 
-    TextView module1, module2, module3, module4;
-    Button module1Button, module2Button, module3Button, module4Button;
+/*    TextView module1, module2, module3, module4;
+    Button module1Button, module2Button, module3Button, module4Button;*/
 
     private DatabaseReference mDatabase;
 
-/*    public final static String ID_KEY = "ID_KEY";*/
+    // public final static String ID_KEY = "ID_KEY";
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid = user.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_groups);
-
+        setContentView(R.layout.my_groups_page_revised);
         createGroupButton = findViewById(R.id.createGroupButton);
-        module1 = findViewById(R.id.module1);
+
+/*      module1 = findViewById(R.id.module1);
         module2 = findViewById(R.id.module2);
         module3 = findViewById(R.id.module3);
         module4 = findViewById(R.id.module4);
@@ -55,7 +62,7 @@ public class MyGroupsActivity extends AppCompatActivity {
         module4Button = findViewById(R.id.module4Button);
 
         TextView[] moduleTextViewList = {module1, module2, module3, module4};
-        Button[] moduleButtonList = {module1Button, module2Button, module3Button, module4Button};
+        Button[] moduleButtonList = {module1Button, module2Button, module3Button, module4Button};*/
 
         // Create Group button
         createGroupButton.setOnClickListener(new View.OnClickListener() {
@@ -66,9 +73,36 @@ public class MyGroupsActivity extends AppCompatActivity {
             }
         });
 
+        DatabaseReference projectsRef = FirebaseDatabase.getInstance().getReference().child("Project");
+        Query query = projectsRef.orderByChild("studentList");
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Project> projects =new ArrayList<>();
+                for (DataSnapshot projectSnapshot: snapshot.getChildren()){
+                    Project project = projectSnapshot.getValue(Project.class);
+                    if (project.getStudentList().contains(uid)){
+                        projects.add(project);
+                    }
+                }
+                Log.d("MyGroupsActivity", "projects list size: " + projects.size());
+                recyclerView = findViewById(R.id.nRecycleView);
+                MyGroupsAdapter adapter = new MyGroupsAdapter(MyGroupsActivity.this, projects);
+                recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                recyclerView.setLayoutManager(new LinearLayoutManager(MyGroupsActivity.this));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         // Select module headers to show depending on pillar and term
 
-        DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
+/*        DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
 
         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -153,17 +187,15 @@ public class MyGroupsActivity extends AppCompatActivity {
                             }
                         });
                         i++;
-
-
                     }
                 }
              }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
+
 
     }
 }
