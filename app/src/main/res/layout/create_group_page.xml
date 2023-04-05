@@ -34,8 +34,7 @@
         android:layout_width="120dp"
         android:layout_height="53dp"
         android:backgroundTint="@color/orangeApp"
-
-        android:text="Update"
+        android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
