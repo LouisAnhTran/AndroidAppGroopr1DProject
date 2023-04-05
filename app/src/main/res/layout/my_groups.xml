@@ -45,12 +45,12 @@
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="@+id/textView15" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createGroupButton"
         android:layout_width="298dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/redbg"
+        android:background="@drawable/white_card"
         android:drawableEnd="@drawable/add_symbol"
         android:ems="10"
         android:fontFamily="@font/poppins_bold"
@@ -66,49 +66,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/module1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/poppins"
-        android:text="50.001 Introduction to Information Systems"
-        android:textColor="#BD7000"
-        app:layout_constraintEnd_toEndOf="@+id/createGroupButton"
-        app:layout_constraintTop_toBottomOf="@+id/createGroupButton" />
-
-    <Button
-        android:id="@+id/module1Button"
-        android:layout_width="304dp"
-        android:layout_height="68dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/module1"
-        app:layout_constraintStart_toStartOf="@+id/module1"
-        app:layout_constraintTop_toBottomOf="@+id/module1" />
-
-    <TextView
-        android:id="@+id/module2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:fontFamily="@font/poppins"
-        android:text="50.001 Introduction to Information Systems"
-        android:textColor="#BD7000"
-        app:layout_constraintEnd_toEndOf="@+id/module1Button"
-        app:layout_constraintStart_toStartOf="@+id/module1Button"
-        app:layout_constraintTop_toBottomOf="@+id/module1" />
-
-    <Button
-        android:id="@+id/module2Button"
-        android:layout_width="299dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="4dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/module2"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/module2"
-        app:layout_constraintTop_toBottomOf="@+id/module2" />
-
-    <TextView
         android:id="@+id/module3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,11 +75,31 @@
         app:layout_constraintBottom_toTopOf="@+id/module3Button"
         app:layout_constraintStart_toStartOf="@+id/module3Button" />
 
+    <TextView
+        android:id="@+id/module1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="50.001 Introduction to Information Systems"
+        android:textColor="#BD7000"
+        app:layout_constraintBottom_toTopOf="@+id/module1card"
+        app:layout_constraintStart_toStartOf="@+id/module1card" />
+
+    <TextView
+        android:id="@+id/module2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="50.002 Computation Structures"
+        android:textColor="#BD7000"
+        app:layout_constraintBottom_toTopOf="@+id/module2card"
+        app:layout_constraintStart_toStartOf="@+id/module2card" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/module3Button"
-        android:layout_width="306dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/redbg"
         android:drawableStart="@drawable/smallexclaimation"
         android:fontFamily="@font/poppins"
@@ -131,14 +108,14 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/module4Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/module2card"
+        app:layout_constraintStart_toStartOf="@+id/module2card" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/module4Button"
-        android:layout_width="306dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/redbg"
         android:drawableStart="@drawable/smallexclaimation"
         android:fontFamily="@font/poppins"
@@ -147,6 +124,27 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/module3Button"
+        app:layout_constraintStart_toStartOf="@+id/module3Button" />
+
+    <include
+        android:id="@+id/module2card"
+        layout="@layout/mygrpcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/module3Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/module1card"
+        layout="@layout/mygrpcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/module2card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
