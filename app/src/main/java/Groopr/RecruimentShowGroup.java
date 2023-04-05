@@ -21,9 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import Groopr.Model.Project;
+import Groopr.Model.ProjectSupport;
 import Groopr.Model.RecruitmentAdapter;
+import Groopr.Model.ShowGroupRecycleViewInterface;
 
-public class RecruimentShowGroup extends AppCompatActivity {
+public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupRecycleViewInterface {
     private DatabaseReference mDatabase;
 
     private String moduleID;
@@ -31,6 +33,10 @@ public class RecruimentShowGroup extends AppCompatActivity {
     private String fullNameModule;
 
     private TextView title;
+
+    private ArrayList<ProjectSupport> projectList;
+
+    private static final String TAG="PassProjectID";
 
 
     @Override
@@ -53,15 +59,17 @@ public class RecruimentShowGroup extends AppCompatActivity {
         mDatabase.child("Project").orderByChild("moduleID").equalTo(this.moduleID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Project> projectList=new ArrayList<Project>();
+                RecruimentShowGroup.this.projectList=new ArrayList<ProjectSupport>();
                 for(DataSnapshot object:snapshot.getChildren()){
-                    projectList.add(object.getValue(Project.class));
+                    ProjectSupport t1=object.getValue(ProjectSupport.class);
+                    t1.setProjectID(object.getKey());
+                    projectList.add(t1);
                 }
 
 
                 RecyclerView recyclerView=findViewById(R.id.mRecycleView);
 
-                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,projectList);
+                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(RecruimentShowGroup.this));
             }
@@ -88,7 +96,7 @@ public class RecruimentShowGroup extends AppCompatActivity {
 
                 RecyclerView recyclerView=findViewById(R.id.mRecycleView);
 
-                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,p1);
+                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(RecruimentShowGroup.this));
 
@@ -100,7 +108,12 @@ public class RecruimentShowGroup extends AppCompatActivity {
             }
         });
 
-
     }
 
+    @Override
+    public void OnItemClick(int pos) {
+        Intent intent=new Intent(this,RecruitmentGroupInfo.class);
+        intent.putExtra(TAG,this.projectList.get(pos).getProjectID().toString());
+        startActivity(intent);
+    }
 }

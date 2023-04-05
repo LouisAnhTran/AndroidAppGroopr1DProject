@@ -16,16 +16,19 @@ import java.util.ArrayList;
 
 public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.MyViewHolder>{
     Context context;
-    ArrayList<Project> listProject;
+    ArrayList<ProjectSupport> listProject;
 
     ArrayList<Integer> listImage;
+
+    private final ShowGroupRecycleViewInterface showGroupRecycleViewInterface;
 
     int randomNumber;
 
 
-    public RecruitmentAdapter(Context context, ArrayList<Project> projectList){
+    public RecruitmentAdapter(Context context, ArrayList<ProjectSupport> projectList,ShowGroupRecycleViewInterface showGroupRecycleViewInterface){
         this.context=context;
         this.listProject=projectList;
+        this.showGroupRecycleViewInterface=showGroupRecycleViewInterface;
         listImage=new ArrayList<Integer>();
         listImage.add(R.drawable.robot1);
         listImage.add(R.drawable.robot2);
@@ -33,6 +36,9 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
         listImage.add(R.drawable.robot4);
         listImage.add(R.drawable.robot5);
         listImage.add(R.drawable.robot6);
+        listImage.add(R.drawable.robot7);
+        listImage.add(R.drawable.robot8);
+
     }
 
     @NonNull
@@ -41,7 +47,7 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
         /** This is where you can inflate the layout (Giving a look to our rows) **/
         LayoutInflater inflater=LayoutInflater.from(context);
         View view=inflater.inflate(R.layout.recycle_view_row_for_recruiment_show_group,parent,false);
-        return new RecruitmentAdapter.MyViewHolder(view);
+        return new RecruitmentAdapter.MyViewHolder(view,showGroupRecycleViewInterface);
     }
 
     @Override
@@ -70,7 +76,7 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
         TextView textViewShowSkills;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView,ShowGroupRecycleViewInterface showGroupRecycleViewInterface) {
             super(itemView);
 
             imageGroup=itemView.findViewById(R.id.groupPhoto);
@@ -79,6 +85,18 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
             textViewNumberMembers=itemView.findViewById(R.id.groupMember);
             textViewShowSkills=itemView.findViewById(R.id.skillNeeded);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(showGroupRecycleViewInterface!=null){
+                        int pos=getAdapterPosition();
+
+                        if(pos!=RecyclerView.NO_POSITION){
+                            showGroupRecycleViewInterface.OnItemClick(pos);
+                        }
+                    }
+                }
+            });
 
         }
     }
