@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +31,12 @@ public class RecruimentHomePage extends AppCompatActivity {
     private Button module3;
     private Button module4;
 
+    private TextView title1;
+
     private DatabaseReference mDatabase;
+
+    public static final String TAG="ModuleID";
+    public static final String TAG1="FullModuleName";
 
     private Button project2d;
 
@@ -47,7 +53,7 @@ public class RecruimentHomePage extends AppCompatActivity {
         module2=findViewById(R.id.module2);
         module3=findViewById(R.id.module3);
         module4=findViewById(R.id.module4);
-        project2d=findViewById(R.id.project2Dbutton);
+        title1=findViewById(R.id.titlePillarTerm);
 
 
         mDatabase= FirebaseDatabase.getInstance().getReference();
@@ -56,10 +62,31 @@ public class RecruimentHomePage extends AppCompatActivity {
         module1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(RecruimentHomePage.this,RecruimentShowGroup.class);
-                startActivity(intent);
+                handleClickButton(module1);
             }
         });
+
+        module2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickButton(module2);
+            }
+        });
+
+        module3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickButton(module3);
+            }
+        });
+
+        module4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickButton(module4);
+            }
+        });
+
 
         mDatabase.child("Student").child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -68,11 +95,12 @@ public class RecruimentHomePage extends AppCompatActivity {
                 ShapeFactory st=new ShapeFactory();
                 Pillar pl=st.getProduct(RecruimentHomePage.this.st.getPillar().toString(),RecruimentHomePage.this.st.getTerm().toString());
 
+                RecruimentHomePage.this.title1.setText("Pillar: " + RecruimentHomePage.this.st.getPillar().toString()+ " - " + " Term: "+ RecruimentHomePage.this.st.getTerm().toString());
                 ArrayList<Button> b1=new ArrayList<Button>();
-                b1.add(module1);
-                b1.add(module2);
-                b1.add(module3);
-                b1.add(module4);
+                b1.add(RecruimentHomePage.this.module1);
+                b1.add(RecruimentHomePage.this.module2);
+                b1.add(RecruimentHomePage.this.module3);
+                b1.add(RecruimentHomePage.this.module4);
 
                 for(Button b: b1){
                     b.setEnabled(true);
@@ -96,10 +124,12 @@ public class RecruimentHomePage extends AppCompatActivity {
         });
 
 
+    }
 
-
-
-
-
+    private void handleClickButton(Button b1){
+        Intent intent=new Intent(RecruimentHomePage.this,RecruimentShowGroup.class);
+        intent.putExtra(RecruimentHomePage.TAG,b1.getText().subSequence(0,6));
+        intent.putExtra(RecruimentHomePage.TAG1,b1.getText());
+        startActivity(intent);
     }
 }

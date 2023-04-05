@@ -10,27 +10,14 @@
         android:id="@+id/module1"
         android:layout_width="280dp"
         android:layout_height="75dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="300dp"
         android:backgroundTint="#E48700"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/_50_001_introduction_to_information_systems"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/project2Dbutton"
-        android:layout_width="280dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#FFB82D"
-        android:fontFamily="@font/poppins"
-        android:text="@string/_2d_project"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/module4" />
 
     <Button
         android:id="@+id/module4"
@@ -91,11 +78,26 @@
         android:layout_height="43dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/poppins_light"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Which modules are you looking for?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#707070"
+        android:textColor="@color/white"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/titlePillarTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="TextView"
+        android:textColor="@color/orangeApp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/module1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

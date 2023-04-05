@@ -7,18 +7,19 @@
     android:background="@drawable/bg2_groopr">
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/moduleName"
         android:layout_width="214dp"
         android:layout_height="37dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/poppins_light"
+        android:fontFamily="@font/poppins_semibold"
         android:text="@string/_50_001_introduction_to_information_systems"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#707070"
+        android:textColor="@color/white"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        tools:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textView5"
@@ -26,7 +27,7 @@
         android:layout_height="84dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins_semibold"
         android:text="@string/recruitment"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -54,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/moduleName"
         tools:ignore="HardcodedText" />
 
     <EditText
