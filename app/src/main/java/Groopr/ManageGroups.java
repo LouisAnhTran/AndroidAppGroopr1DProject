@@ -43,6 +43,10 @@ public class ManageGroups extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_groups_page);
 
+        // Attributes
+        // TODO: ProjectID from prev page
+        projectID = "-NSMCDuj1claJ6b_Q6nw";
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // TODO: Get ProjectID from previous page
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
