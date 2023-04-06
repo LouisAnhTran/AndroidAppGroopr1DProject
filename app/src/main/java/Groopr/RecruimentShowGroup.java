@@ -57,7 +57,7 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
 
         title.setText(this.fullNameModule.toString());
 
-        mDatabase.child("Project").orderByChild("moduleID").equalTo(moduleID+" ").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Project").orderByChild("moduleID").equalTo(moduleID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
