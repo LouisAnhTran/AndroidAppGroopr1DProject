@@ -84,9 +84,9 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Student st=snapshot.getValue(Student.class);
-                aboutYou.setHint(st.getAboutYou().toString());
-                skill.setHint(st.getSkillSet());
-                userName.setText(st.getUserName());
+                userName.setText("@"+st.getUserName());
+                aboutYou.setText(st.getAboutYou().toString());
+                skill.setText(st.getSkillSet().toString());
                 email.setText(st.getEmailAddress().toString());
                 id.setText(st.getStudentID());
                 email.setEnabled(false);
