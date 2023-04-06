@@ -39,17 +39,17 @@
         android:fontFamily="@font/poppins"
         android:text="You are an admin. You can: manage, update, recruit or post"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/EditCapacityHeader"
+        app:layout_constraintEnd_toEndOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroups"
         app:layout_constraintTop_toBottomOf="@+id/EditGroups" />
 
     <Button
-        android:id="@+id/createGroupFinalButton"
+        android:id="@+id/EditGroupButton"
         android:layout_width="120dp"
         android:layout_height="53dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/orangeApp"
-        android:text="Create"
+        android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
         app:layout_constraintHorizontal_bias="1.0"
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/createGroupFinalButton"
+        app:layout_constraintBottom_toTopOf="@+id/EditGroupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
@@ -122,17 +122,18 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/EditGroupNameInput"
-        android:layout_width="200dp"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         app:boxStrokeWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/DescriptionInput"
+        app:layout_constraintEnd_toEndOf="@+id/DescriptionInput"
         app:layout_constraintStart_toStartOf="@+id/DescriptionInput">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/groupNameInput"
-            android:layout_width="200dp"
+            android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
@@ -149,35 +150,6 @@
         android:text="Edit Group Name"
         app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput" />
-
-    <TextView
-        android:id="@+id/EditCapacityHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Capacity"
-        app:layout_constraintBottom_toTopOf="@+id/EditCapacityInput"
-        app:layout_constraintStart_toStartOf="@+id/EditCapacityInput" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/EditCapacityInput"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/DescriptionInput"
-        app:layout_constraintEnd_toEndOf="@+id/DescriptionInput">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputCapacity"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:editable="false"
-            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -207,16 +179,6 @@
         app:layout_constraintEnd_toEndOf="@+id/RedBG"
         app:layout_constraintStart_toStartOf="@+id/RedBG"
         app:layout_constraintTop_toBottomOf="@+id/RedBG" />
-
-    <Spinner
-        android:id="@+id/spinner5"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/capacity_array"
-        app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
-        app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
-        app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"
-        app:layout_constraintTop_toTopOf="@+id/EditCapacityInput" />
 
     <ImageButton
         android:id="@+id/imageButton"
