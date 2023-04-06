@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,7 +33,7 @@ import Groopr.Model.MyGroupsAdapter;
 import Groopr.Model.Project;
 import Groopr.Model.Student;
 
-public class MyGroupsActivity extends AppCompatWithToolbar {
+public class MyGroupsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Button createGroupButton;
 
@@ -52,11 +51,6 @@ public class MyGroupsActivity extends AppCompatWithToolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_groups_page_revised);
         createGroupButton = findViewById(R.id.createGroupButton);
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_mygroups1);
-
-        // using toolbar as ActionBar
-        setSupportActionBar(myToolbar);
 
 /*      module1 = findViewById(R.id.module1);
         module2 = findViewById(R.id.module2);
@@ -204,11 +198,5 @@ public class MyGroupsActivity extends AppCompatWithToolbar {
 
 
     }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.MyGroupsPage;
-    }
-
 }
 

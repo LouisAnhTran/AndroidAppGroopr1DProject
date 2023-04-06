@@ -6,33 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg3_groopr">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_profile"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="#FFB82D"
-            android:paddingStart="10dp"
-            app:navigationIcon="@drawable/navbar_icon"
-            app:title=" "
-            android:theme="@style/MyToolbarStyle"
-            android:popupTheme="@style/MyToolbarStyle"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/MyProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Profile"
+        android:fontFamily="@font/poppins_bold"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/MyProfile2"
         app:layout_constraintStart_toStartOf="@+id/MyProfile2" />
@@ -43,16 +23,17 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="80dp"
+        android:fontFamily="@font/poppins"
         android:text="View and edit your details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/userImageProfile"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/red_border"
+        android:background="@drawable/black_border"
         android:clipToOutline="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +46,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Norman Lee \n @norml"
+        android:fontFamily="@font/poppins"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/userImageProfile"
         app:layout_constraintStart_toStartOf="@+id/userImageProfile"
@@ -73,16 +55,16 @@
 
     <EditText
         android:id="@+id/aboutYouProfile"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:background="@drawable/text_border"
         android:backgroundTint="@color/black"
         android:contentDescription="@null"
+        android:fontFamily="@font/poppins"
         android:hint="Likes SUTD canteen"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:paddingStart="15dp"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="15sp"
@@ -90,29 +72,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AboutYouHeader" />
 
-
     <TextView
         android:id="@+id/AboutYouHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="304dp"
         android:text="About You"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.305"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/aboutYouProfile"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/skillSetProfile"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:background="@drawable/text_border"
         android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins"
         android:hint="Firebase, JetPack"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:paddingStart="15dp"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="15sp"
@@ -126,21 +109,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Your Skills"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toStartOf="@+id/aboutYouProfile"
         app:layout_constraintTop_toBottomOf="@+id/aboutYouProfile" />
 
     <EditText
         android:id="@+id/emailInputProfile"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:background="@drawable/text_border"
         android:backgroundTint="@color/black"
-        android:hint="ho_lee_fuk@mymail.sutd.edu.sg"
+        android:fontFamily="@font/poppins"
+        android:hint="norman_lee@mymail.sutd.edu.sg"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:paddingStart="15dp"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,21 +137,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Email:"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toStartOf="@+id/skillSetProfile"
         app:layout_constraintTop_toBottomOf="@+id/skillSetProfile" />
 
     <EditText
         android:id="@+id/inputIdProfile"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:background="@drawable/text_border"
         android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins"
         android:hint="1001234"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:paddingStart="15dp"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,17 +165,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Student ID"
+        android:fontFamily="@font/poppins"
         app:layout_constraintStart_toStartOf="@+id/emailInputProfile"
         app:layout_constraintTop_toBottomOf="@+id/emailInputProfile" />
 
     <Button
         android:id="@+id/profileButtonFinal"
-        android:layout_width="115dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="664dp"
-        android:background="@drawable/custom_edit"
         android:backgroundTint="@color/orangeApp"
         android:text="Update Info"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
