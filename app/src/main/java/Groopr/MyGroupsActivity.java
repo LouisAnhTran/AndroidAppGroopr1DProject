@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,31 +31,28 @@ import Groopr.Model.FactoryDesignForPillar.Pillar;
 import Groopr.Model.FactoryDesignForPillar.ShapeFactory;
 import Groopr.Model.MyGroupsAdapter;
 import Groopr.Model.Project;
+import Groopr.Model.ProjectSupport;
+import Groopr.Model.ShowGroupRecycleViewInterface;
 import Groopr.Model.Student;
 
-public class MyGroupsActivity extends AppCompatWithToolbar {
+public class MyGroupsActivity extends AppCompatActivity implements ShowGroupRecycleViewInterface {
     RecyclerView recyclerView;
     Button createGroupButton;
 
-/*    TextView module1, module2, module3, module4;
-    Button module1Button, module2Button, module3Button, module4Button;*/
-
     private DatabaseReference mDatabase;
 
-    // public final static String ID_KEY = "ID_KEY";
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid = user.getUid();
+
+    private ArrayList<ProjectSupport> projects;
+
+    public static final String TAG="PassProjectID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_groups_page_revised);
         createGroupButton = findViewById(R.id.createGroupButton);
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_mygroups1);
-
-        // using toolbar as ActionBar
-        setSupportActionBar(myToolbar);
 
 /*      module1 = findViewById(R.id.module1);
         module2 = findViewById(R.id.module2);
@@ -85,16 +81,17 @@ public class MyGroupsActivity extends AppCompatWithToolbar {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<Project> projects =new ArrayList<>();
+                MyGroupsActivity.this.projects =new ArrayList<>();
                 for (DataSnapshot projectSnapshot: snapshot.getChildren()){
-                    Project project = projectSnapshot.getValue(Project.class);
+                    ProjectSupport project = projectSnapshot.getValue(ProjectSupport.class);
                     if (project.getStudentList().contains(uid)){
+                        project.setProjectID(projectSnapshot.getKey());
                         projects.add(project);
                     }
                 }
                 Log.d("MyGroupsActivity", "projects list size: " + projects.size());
                 recyclerView = findViewById(R.id.nRecycleView);
-                MyGroupsAdapter adapter = new MyGroupsAdapter(MyGroupsActivity.this, projects);
+                MyGroupsAdapter adapter = new MyGroupsAdapter(MyGroupsActivity.this, projects, MyGroupsActivity.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
                 recyclerView.setLayoutManager(new LinearLayoutManager(MyGroupsActivity.this));
@@ -105,6 +102,15 @@ public class MyGroupsActivity extends AppCompatWithToolbar {
 
             }
         });
+
+    }
+
+    @Override
+    public void OnItemClick(int pos) {
+        Intent intent=new Intent(this,EditGroupsActivity.class);
+        intent.putExtra(TAG,this.projects.get(pos).getProjectID().toString());
+        startActivity(intent);
+    }
 
         // Select module headers to show depending on pillar and term
 
@@ -202,13 +208,6 @@ public class MyGroupsActivity extends AppCompatWithToolbar {
             }
         });*/
 
-
-    }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return R.id.MyGroupsPage;
-    }
 
 }
 

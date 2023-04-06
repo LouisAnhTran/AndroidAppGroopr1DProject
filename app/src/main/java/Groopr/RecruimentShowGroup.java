@@ -3,14 +3,8 @@ package Groopr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +25,7 @@ import Groopr.Model.ProjectSupport;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.ShowGroupRecycleViewInterface;
 
-public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGroupRecycleViewInterface {
+public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupRecycleViewInterface {
     private DatabaseReference mDatabase;
 
     private String moduleID;
@@ -42,18 +36,13 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
 
     private ArrayList<ProjectSupport> projectList;
 
-    static final String TAG="PassProjectID";
+    public static final String TAG="PassProjectID";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitment_page_2_connect);
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitment);
-
-        // using toolbar as ActionBar
-        setSupportActionBar(myToolbar);
 
         Intent intent=getIntent();
         this.moduleID=intent.getStringExtra(RecruimentHomePage.TAG);
@@ -64,18 +53,28 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
 
         title=findViewById(R.id.moduleName);
 
+        Log.d("Check",this.moduleID.toString());
 
         title.setText(this.fullNameModule.toString());
 
-        mDatabase.child("Project").orderByChild("moduleID").equalTo(this.moduleID).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Project").orderByChild("moduleID").equalTo(moduleID+" ").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 RecruimentShowGroup.this.projectList=new ArrayList<ProjectSupport>();
+
+
                 for(DataSnapshot object:snapshot.getChildren()){
                     ProjectSupport t1=object.getValue(ProjectSupport.class);
                     t1.setProjectID(object.getKey());
-                    projectList.add(t1);
+                    RecruimentShowGroup.this.projectList.add(t1);
                 }
+
+                Log.d("check2",moduleID);
+
+
+
+//                Log.d("Check1",projectSupportsFinal.toString());
 
 
                 RecyclerView recyclerView=findViewById(R.id.mRecycleView);
@@ -93,31 +92,31 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
 
 
 
-        mDatabase= FirebaseDatabase.getInstance().getReference();
+//        mDatabase= FirebaseDatabase.getInstance().getReference();
 
-        mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Project> p1=new ArrayList<Project>();
-                for(DataSnapshot d1: snapshot.getChildren()){
-                    p1.add(d1.getValue(Project.class));
-                }
-
-                Log.d("Our Info",p1.get(0).getMessage());
-
-                RecyclerView recyclerView=findViewById(R.id.mRecycleView);
-
-                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
-                recyclerView.setAdapter(adapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(RecruimentShowGroup.this));
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                ArrayList<Project> p1=new ArrayList<Project>();
+//                for(DataSnapshot d1: snapshot.getChildren()){
+//                    p1.add(d1.getValue(Project.class));
+//                }
+//
+//                Log.d("Our Info",p1.get(0).getMessage());
+//
+//                RecyclerView recyclerView=findViewById(R.id.mRecycleView);
+//
+//                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
+//                recyclerView.setAdapter(adapter);
+//                recyclerView.setLayoutManager(new LinearLayoutManager(RecruimentShowGroup.this));
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
     }
 
@@ -127,10 +126,4 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
         intent.putExtra(TAG,this.projectList.get(pos).getProjectID().toString());
         startActivity(intent);
     }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return 0;
-    }
-
 }
