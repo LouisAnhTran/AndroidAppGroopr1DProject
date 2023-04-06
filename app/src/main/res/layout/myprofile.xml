@@ -20,157 +20,147 @@
         android:id="@+id/MyProfile2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View and edit your details"
-        android:layout_marginTop="80dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="80dp"
+        android:text="View and edit your details"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/userImageProfile"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/red_border"
         android:clipToOutline="true"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MyProfile2"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/userNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Norman Lee \n @norml"
         android:gravity="center"
+        android:text="Norman Lee \n @norml"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/userImageProfile"
+        app:layout_constraintStart_toStartOf="@+id/userImageProfile"
+        app:layout_constraintTop_toBottomOf="@+id/userImageProfile" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/AboutYou"
+
+    <EditText
+        android:id="@+id/aboutYouProfile"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="330dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/AboutYouInput"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:hint="Likes SUTD canteen"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="8dp"
+        android:background="@drawable/text_border"
+        android:backgroundTint="@color/black"
+        android:contentDescription="@null"
+        android:hint="Likes SUTD canteen"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/AboutYouHeader"
+        app:layout_constraintTop_toBottomOf="@+id/AboutYouHeader" />
 
     <TextView
         android:id="@+id/AboutYouHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
         android:text="About You"
-        app:layout_constraintBottom_toTopOf="@+id/AboutYou"
-        app:layout_constraintStart_toStartOf="@+id/AboutYou" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/YourSkills"
+
+    <EditText
+        android:id="@+id/skillSetProfile"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="230dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/YourSkillsInput"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:hint="Firebase, JetPack"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="12dp"
+        android:background="@drawable/text_border"
+        android:backgroundTint="@color/black"
+        android:hint="Firebase, JetPack"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/YourSkillsHeader"
+        app:layout_constraintTop_toBottomOf="@+id/YourSkillsHeader" />
 
     <TextView
         android:id="@+id/YourSkillsHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Your Skills"
-        app:layout_constraintBottom_toTopOf="@+id/YourSkills"
-        app:layout_constraintStart_toStartOf="@+id/YourSkills" />
+        app:layout_constraintStart_toStartOf="@+id/aboutYouProfile"
+        app:layout_constraintTop_toBottomOf="@+id/aboutYouProfile" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Email"
+    <EditText
+        android:id="@+id/emailInputProfile"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="130dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/EmailInput"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:hint="ho_lee_fuk@mymail.sutd.edu.sg"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="4dp"
+        android:background="@drawable/text_border"
+        android:backgroundTint="@color/black"
+        android:hint="ho_lee_fuk@mymail.sutd.edu.sg"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/EmailHeader"
+        app:layout_constraintTop_toBottomOf="@+id/EmailHeader" />
 
     <TextView
         android:id="@+id/EmailHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Email:"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
-        app:layout_constraintStart_toStartOf="@+id/Email" />
+        app:layout_constraintStart_toStartOf="@+id/skillSetProfile"
+        app:layout_constraintTop_toBottomOf="@+id/skillSetProfile" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ID"
+    <EditText
+        android:id="@+id/inputIdProfile"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/IDInput"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:hint="10001234"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="12dp"
+        android:background="@drawable/text_border"
+        android:backgroundTint="@color/black"
+        android:hint="1001234"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/IDHeader"
+        app:layout_constraintTop_toBottomOf="@+id/IDHeader" />
 
     <TextView
         android:id="@+id/IDHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email:"
-        app:layout_constraintBottom_toTopOf="@+id/ID"
-        app:layout_constraintStart_toStartOf="@+id/ID" />
+        android:layout_marginTop="12dp"
+        android:text="Student ID"
+        app:layout_constraintStart_toStartOf="@+id/emailInputProfile"
+        app:layout_constraintTop_toBottomOf="@+id/emailInputProfile" />
+
+    <Button
+        android:id="@+id/profileButtonFinal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="664dp"
+        android:backgroundTint="@color/orangeApp"
+        android:text="Update Info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

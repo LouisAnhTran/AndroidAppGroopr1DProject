@@ -46,13 +46,13 @@ public class HomePage extends AppCompatActivity {
         });
 
         /** Navigate to profile **/
-//        profileButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(HomePage.this, .class);
-//                startActivity(intent);
-//            }
-//        });
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomePage.this,MyProfile.class);
+                startActivity(intent);
+            }
+        });
 
 
         /** Navigate to log in page**/

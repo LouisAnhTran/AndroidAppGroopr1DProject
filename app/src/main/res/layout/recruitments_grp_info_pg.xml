@@ -7,7 +7,7 @@
     android:background="@drawable/recruitments_info_pg">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/userNameProfile"
         android:layout_width="249dp"
         android:layout_height="84dp"
         android:layout_marginStart="48dp"
@@ -29,8 +29,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#707070"
         app:autoSizeTextType="uniform"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintStart_toStartOf="@+id/userNameProfile"
+        app:layout_constraintTop_toTopOf="@+id/userNameProfile" />
 
     <TextView
         android:id="@+id/grp_name"
