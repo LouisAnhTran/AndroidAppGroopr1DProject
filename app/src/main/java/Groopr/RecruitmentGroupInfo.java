@@ -1,5 +1,6 @@
 package Groopr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,10 +67,17 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         recyclerView = findViewById(R.id.r);
         subheader = findViewById(R.id.subheader);
 
+        // Loading user ID from firebase
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            curr_UID = user.getUid();;
+        }
+
         /**
          * Loading group details from firebase
-         */
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        */
+
         // TODO: Get ProjectID from previous page
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
             @Override
@@ -114,17 +122,23 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
             }
         });
 
+        /**
+         * Move user to manage group if they are already a part of the group
+         */
+        if (member_list.contains(curr_UID)) {
+            Intent intent = new Intent(RecruitmentGroupInfo.this, ManageGroups.class);
+            startActivity(intent);
+        }
+
         /** APPLYING TO A GROUP
          * If user presses the `Apply` button
          *  Adds current user to the pending approval list of the group if criterias are met:
          *  1. User is not already pending
          *  2. Group size is not full
          */
-
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 // Apply if user exists
                 if (user != null) {
                     curr_UID = user.getUid();

@@ -126,10 +126,18 @@ public class ManageGroups extends AppCompatActivity {
         leaveGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String update = "Leaving was unsuccessful";
+                // Check if UID exists, and remove if so
                 if (!curr_UID.equals("")) {
-                    member_list.remove(curr_UID);
-                    mDatabase.child("Project").child(projectID).child("studentList").setValue(member_list);
+                    if (member_list.contains(curr_UID)) {
+                        member_list.remove(curr_UID);
+                        mDatabase.child("Project").child(projectID).child("studentList").setValue(member_list);
+                        update = "You have successfully left the group.";
+                    }
                 }
+                // Toast to show updates
+                Toast toast = Toast.makeText(getApplicationContext(), update, Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
     }
@@ -157,5 +165,7 @@ public class ManageGroups extends AppCompatActivity {
         youAreAdmin.setText("You are an admin.You can edit group.");
         manageApps.setVisibility(View.VISIBLE);
         editGroup.setVisibility(View.VISIBLE);
+        Toast toast = Toast.makeText(getApplicationContext(), "Welcome, team leader!", Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
