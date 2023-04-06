@@ -55,7 +55,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         setContentView(R.layout.recruitments_grp_info_pg);
 
         // Get ProjectID from previous page
-        String projectID = "-NSLEPJsA5S2oqpmPA_B";
+        String projectID = "-NSMCDuj1claJ6b_Q6nw";
 
         // UI Views
         grp_name = findViewById(R.id.grp_name);
@@ -88,16 +88,24 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
                 // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
                 // TODO: Replace recycler view's `member_list` with `student_names`
-                /**
+
                 ArrayList<String> student_names = new ArrayList<>();
                 for (String member: member_list) {
-                    student_names.add(member);
+                    mDatabase.child("Student").child(member).child("fullName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            student_names.add(String.valueOf(task.getResult().getValue()));
+                            Log.d("Name", String.valueOf(task.getResult().getValue()));
+                        }
+                    });
+
                 }
-                 */
+
+
 
                 // Inserting members into recycle view
                 RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
+                        = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
                 recyclerView.setAdapter( adapter );
                 recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
 
