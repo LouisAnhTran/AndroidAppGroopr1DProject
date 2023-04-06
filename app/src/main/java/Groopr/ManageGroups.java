@@ -59,7 +59,7 @@ public class ManageGroups extends AppCompatActivity {
 
         // Attributes
         // TODO: ProjectID from prev page
-        projectID = "-NSMCDuj1claJ6b_Q6nw";
+        projectID = "-NSMevoBVnet7Ulj8-Jo";
         is_admin = false;
         curr_UID = "";
 
@@ -97,7 +97,7 @@ public class ManageGroups extends AppCompatActivity {
                     curr_UID = user.getUid();
                     is_admin = admin_check(curr_UID);
                 }
-                // activate admin rights if so
+
                 if (is_admin) {
                     admin_mode();
                 }
@@ -148,11 +148,10 @@ public class ManageGroups extends AppCompatActivity {
      * @return
      */
     boolean admin_check(String curr_UID) {
-        if (!(teamleader_id == null)) {
-            if (teamleader_id == curr_UID) {
-                return true;
-            }
+        if (teamleader_id.equals(curr_UID)) {
+            return true;
         }
+
         return false;
     }
 
