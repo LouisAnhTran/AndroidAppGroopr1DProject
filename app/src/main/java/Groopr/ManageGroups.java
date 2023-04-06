@@ -1,5 +1,6 @@
 package Groopr;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,19 @@ public class ManageGroups extends AppCompatActivity {
     private String projectID;
     private DatabaseReference mDatabase;
     RecyclerView recyclerView;
+    private String teamleader_id;
+    private String curr_UID;
+    private boolean is_admin;
+    private List<String> member_list;
+
+    private TextView manageGroups;
+    private TextView youAreAdmin;
+    private TextView groupName;
+    private TextView modName;
+    private TextView info;
+    private Button editGroup;
+    private Button leaveGroup;
+    private Button manageApps;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,20 +60,54 @@ public class ManageGroups extends AppCompatActivity {
         // Attributes
         // TODO: ProjectID from prev page
         projectID = "-NSMCDuj1claJ6b_Q6nw";
+        is_admin = false;
+        curr_UID = "";
 
+        // IDs
+        manageGroups = findViewById(R.id.ManageGroups);
+        youAreAdmin = findViewById(R.id.YouAreAdmin);
+        editGroup = findViewById(R.id.editGroup);
+        leaveGroup = findViewById(R.id.leaveGroup);
+        manageApps = findViewById(R.id.manageApplications);
+        groupName = findViewById(R.id.groupName);
+        modName = findViewById(R.id.modName);
+        info = findViewById(R.id.info);
+        recyclerView = findViewById(R.id.recyclerView);
+
+        // Hiding edit and manage initially
+        editGroup.setVisibility(View.INVISIBLE);
+        manageApps.setVisibility(View.INVISIBLE);
+
+        // Connection to Database
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        // TODO: Get ProjectID from previous page
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Project project = snapshot.child(projectID).getValue(Project.class);
+                teamleader_id = project.getTeamLeaderId();
+                groupName.setText(project.getProjectName());
+                modName.setText(project.getModuleID());
+                info.setText(project.getMessage());
+                member_list = project.getStudentList();
 
+                // check for admin
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    curr_UID = user.getUid();
+                    is_admin = admin_check(curr_UID);
+                }
+                // activate admin rights if so
+                if (is_admin) {
+                    admin_mode();
+                }
 
                 // Inserting members into recycle view
-                recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
+                recyclerView.setLayoutManager( new LinearLayoutManager(ManageGroups.this));
                 RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
+                        = new MembersAdapter(ManageGroups.this, member_list);
                 recyclerView.setAdapter( adapter );
+
 
 
             }
@@ -69,5 +117,45 @@ public class ManageGroups extends AppCompatActivity {
             }
         });
 
+        /** TODO
+         * Button Logic for:
+         * 1. Leave Group
+         * 2. manage group
+         * 3. edit group
+         */
+        leaveGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!curr_UID.equals("")) {
+                    member_list.remove(curr_UID);
+                    mDatabase.child("Project").child(projectID).child("studentList").setValue(member_list);
+                }
+            }
+        });
+    }
+
+    /**
+     * Check if curr user is admin
+     * @param curr_UID
+     * @return
+     */
+    boolean admin_check(String curr_UID) {
+        if (!(teamleader_id == null)) {
+            if (teamleader_id == curr_UID) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Activate admin rights
+     */
+    @SuppressLint("SetTextI18n")
+    void admin_mode() {
+        manageGroups.setText("Groups: Admin");
+        youAreAdmin.setText("You are an admin.You can edit group.");
+        manageApps.setVisibility(View.VISIBLE);
+        editGroup.setVisibility(View.VISIBLE);
     }
 }
