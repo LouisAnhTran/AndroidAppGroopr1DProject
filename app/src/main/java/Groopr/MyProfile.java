@@ -142,11 +142,6 @@ public class MyProfile extends AppCompatWithToolbar {
             }
         });
 
-
-
-
-
-
     }
 
     @Override

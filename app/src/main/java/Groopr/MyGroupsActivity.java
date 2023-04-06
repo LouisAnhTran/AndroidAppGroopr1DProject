@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,7 +36,7 @@ import Groopr.Model.ProjectSupport;
 import Groopr.Model.ShowGroupRecycleViewInterface;
 import Groopr.Model.Student;
 
-public class MyGroupsActivity extends AppCompatActivity implements ShowGroupRecycleViewInterface {
+public class MyGroupsActivity extends AppCompatWithToolbar implements ShowGroupRecycleViewInterface {
     RecyclerView recyclerView;
     Button createGroupButton;
 
@@ -53,6 +54,11 @@ public class MyGroupsActivity extends AppCompatActivity implements ShowGroupRecy
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_groups_page_revised);
         createGroupButton = findViewById(R.id.createGroupButton);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_mygroups);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
 /*      module1 = findViewById(R.id.module1);
         module2 = findViewById(R.id.module2);
@@ -112,7 +118,12 @@ public class MyGroupsActivity extends AppCompatActivity implements ShowGroupRecy
         startActivity(intent);
     }
 
-        // Select module headers to show depending on pillar and term
+    @Override
+    protected int getCurrentMenuId() {
+        return R.id.MyGroupsPage;
+    }
+
+    // Select module headers to show depending on pillar and term
 
 /*        DatabaseReference studentRef = FirebaseDatabase.getInstance().getReference("Student").child(uid);
 

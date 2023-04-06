@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,7 @@ import java.util.List;
 import Groopr.Model.Project;
 import Groopr.Model.RecruitmentAdapter;
 
-public class RecruitmentGroupInfo extends AppCompatActivity {
+public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private DatabaseReference mDatabase;
     TextView grp_name;
     TextView mod_name;
@@ -47,6 +48,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitment1);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         Intent intent=getIntent();
         String projectID=intent.getStringExtra(RecruimentShowGroup.TAG);
@@ -148,6 +154,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 //        toast.show();
 //
 //    }
+    }
+
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
     }
 }
 

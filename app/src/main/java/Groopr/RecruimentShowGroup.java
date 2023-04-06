@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,7 +26,7 @@ import Groopr.Model.ProjectSupport;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.ShowGroupRecycleViewInterface;
 
-public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupRecycleViewInterface {
+public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGroupRecycleViewInterface {
     private DatabaseReference mDatabase;
 
     private String moduleID;
@@ -43,6 +44,11 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitment_page_2_connect);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitment);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         Intent intent=getIntent();
         this.moduleID=intent.getStringExtra(RecruimentHomePage.TAG);
@@ -125,5 +131,10 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
         Intent intent=new Intent(this,RecruitmentGroupInfo.class);
         intent.putExtra(TAG,this.projectList.get(pos).getProjectID().toString());
         startActivity(intent);
+    }
+
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
     }
 }
