@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/overflowMenu"
+        android:icon="@drawable/format_for_show_all_group_page"
+        android:title="Quick Navigate"
+        app:showAsAction="never">
+        <menu>
+            <item android:id="@+id/RecruitmentPage"
+                android:title="@string/recruitment"
+                android:icon="@drawable/nav_recruitment"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/MyGroupsPage"
+                android:title="@string/mygroups"
+                android:icon="@drawable/nav_group"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/ProfilePage"
+                android:title="Profile"
+                android:icon="@drawable/nav_profile"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+</menu>
+
+
+

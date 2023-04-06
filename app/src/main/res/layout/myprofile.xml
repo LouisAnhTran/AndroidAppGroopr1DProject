@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg3_groopr">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_profile"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#FFB82D"
+            android:paddingStart="10dp"
+            app:navigationIcon="@drawable/navbar_icon"
+            app:title=" "
+            android:theme="@style/MyToolbarStyle"
+            android:popupTheme="@style/MyToolbarStyle"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/MyProfile"
@@ -61,11 +82,14 @@
         android:hint="Likes SUTD canteen"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:paddingStart="15dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/AboutYouHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AboutYouHeader" />
+
 
     <TextView
         android:id="@+id/AboutYouHeader"
@@ -74,10 +98,9 @@
         android:layout_marginTop="304dp"
         android:text="About You"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <EditText
         android:id="@+id/skillSetProfile"
@@ -89,10 +112,12 @@
         android:hint="Firebase, JetPack"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:paddingStart="15dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/YourSkillsHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/YourSkillsHeader" />
 
     <TextView
@@ -114,9 +139,11 @@
         android:hint="ho_lee_fuk@mymail.sutd.edu.sg"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:paddingStart="15dp"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/EmailHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailHeader" />
 
     <TextView
@@ -138,9 +165,11 @@
         android:hint="1001234"
         android:minWidth="48dp"
         android:minHeight="48dp"
+        android:paddingStart="15dp"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/IDHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IDHeader" />
 
     <TextView
@@ -154,9 +183,10 @@
 
     <Button
         android:id="@+id/profileButtonFinal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
         android:layout_marginTop="664dp"
+        android:background="@drawable/custom_edit"
         android:backgroundTint="@color/orangeApp"
         android:text="Update Info"
         app:layout_constraintEnd_toEndOf="parent"
