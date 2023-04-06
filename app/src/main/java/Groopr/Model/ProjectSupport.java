@@ -1,11 +1,12 @@
 package Groopr.Model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project {
+public class ProjectSupport {
     private String projectName;
+
+    private String projectID;
     private String moduleID;
     private List<String> studentList;
     private int maxNumberOfMember;
@@ -15,6 +16,14 @@ public class Project {
     private ArrayList<String> applicationsList;
 
     private String teamLeaderId;
+
+    public String getProjectID() {
+        return projectID;
+    }
+
+    public void setProjectID(String projectID) {
+        this.projectID = projectID;
+    }
 
     public String getTeamLeaderId() {
         return teamLeaderId;
@@ -68,13 +77,11 @@ public class Project {
         return skillNeeded;
     }
 
-    public Integer getNumberOfMembers() {return this.studentList.size();}
-
     public void setSkillNeeded(String skillNeeded) {
         this.skillNeeded = skillNeeded;
     }
 
-    public Project() {
+    public ProjectSupport() {
         this.studentList=new ArrayList<String>();
     }
 
@@ -86,7 +93,7 @@ public class Project {
         this.applicationsList = applicationsList;
     }
 
-    public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
+    public ProjectSupport(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
         this.projectName = projectName;
         this.moduleID = moduleID;
         this.studentList = studentList;
