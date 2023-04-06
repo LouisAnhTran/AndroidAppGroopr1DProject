@@ -6,38 +6,54 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg3_groopr">
 
+    <Button
+        android:id="@+id/EditMemberButton"
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/orangeApp"
+        android:text="Edit Members"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/EditSkillsInput"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
     <TextView
-        android:id="@+id/CreateGroups"
+        android:id="@+id/EditGroups"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-
-        android:text="Create Groups"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins"
+        android:text="Edit Groups"
         android:textColor="@color/black"
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/YouAreAdmin"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="You are an admin. You can: manage, update, recruit or post"
-        app:layout_constraintEnd_toEndOf="@+id/CreateGroups"
-        app:layout_constraintStart_toStartOf="@+id/CreateGroups"
-        app:layout_constraintTop_toBottomOf="@+id/CreateGroups" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/EditGroupNameInput"
+        app:layout_constraintStart_toStartOf="@+id/EditGroups"
+        app:layout_constraintTop_toBottomOf="@+id/EditGroups" />
 
     <Button
-        android:id="@+id/createGroupFinalButton"
+        android:id="@+id/EditGroupButton"
         android:layout_width="120dp"
         android:layout_height="53dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/orangeApp"
-        android:text="Create"
+        android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/EditSkillsInput"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
 
@@ -45,9 +61,9 @@
         android:id="@+id/EditSkillsInput"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/createGroupFinalButton"
-        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/EditGroupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
@@ -86,7 +102,7 @@
         android:id="@+id/DescriptionInput"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="50dp"
         app:boxStrokeWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/EditSkillsInput"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,30 +114,31 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-            android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
+            android:textColor="@color/black"
             android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/EditGroupNameInput"
-        android:layout_width="200dp"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="50dp"
         app:boxStrokeWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/DescriptionInput"
+        app:layout_constraintEnd_toEndOf="@+id/DescriptionInput"
         app:layout_constraintStart_toStartOf="@+id/DescriptionInput">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/groupNameInput"
-            android:layout_width="200dp"
+            android:layout_width="349dp"
             android:layout_height="wrap_content"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
-            android:textColor="@color/black"
             android:hint="Group Algo"
+            android:textColor="@color/black"
             android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -134,35 +151,6 @@
         app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput" />
 
-    <TextView
-        android:id="@+id/EditCapacityHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Capacity"
-        app:layout_constraintBottom_toTopOf="@+id/EditCapacityInput"
-        app:layout_constraintStart_toStartOf="@+id/EditCapacityInput" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/EditCapacityInput"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/DescriptionInput"
-        app:layout_constraintEnd_toEndOf="@+id/DescriptionInput">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputCapacity"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:editable="false"
-            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -173,38 +161,15 @@
 
     <ImageView
         android:id="@+id/RedBG"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="130dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/redcurvedbox"
         android:background="@drawable/white_border"
         android:clipToOutline="true"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/EditModuleInput"
-        android:layout_width="349dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:textColor="@color/black"
-        app:boxStrokeWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
-        app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/selectModule"
-            android:layout_width="349dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text_border"
-            android:backgroundTint="@color/black"
-            android:textColor="@color/black"
-            android:hint="50.004 Algorithms"
-            android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/EditPhoto"
@@ -214,33 +179,6 @@
         app:layout_constraintEnd_toEndOf="@+id/RedBG"
         app:layout_constraintStart_toStartOf="@+id/RedBG"
         app:layout_constraintTop_toBottomOf="@+id/RedBG" />
-
-    <TextView
-        android:id="@+id/EditModuleHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Module"
-        app:layout_constraintBottom_toTopOf="@+id/EditModuleInput"
-        app:layout_constraintStart_toStartOf="@+id/EditModuleInput" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="209dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/EditModuleInput"
-        app:layout_constraintEnd_toEndOf="@+id/EditModuleInput"
-        app:layout_constraintTop_toTopOf="@+id/EditModuleInput"
-        />
-
-    <Spinner
-        android:id="@+id/spinner5"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/capacity_array"
-        app:layout_constraintBottom_toBottomOf="@+id/EditCapacityInput"
-        app:layout_constraintEnd_toEndOf="@+id/EditCapacityInput"
-        app:layout_constraintStart_toStartOf="@+id/EditCapacityInput"
-        app:layout_constraintTop_toTopOf="@+id/EditCapacityInput" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -253,7 +191,6 @@
         app:layout_constraintStart_toStartOf="@+id/EditSkillsInput"
         app:layout_constraintTop_toTopOf="@+id/EditSkillsInput"
         app:srcCompat="@drawable/add" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
