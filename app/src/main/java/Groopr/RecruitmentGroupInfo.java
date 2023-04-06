@@ -56,7 +56,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         setContentView(R.layout.recruitments_grp_info_pg);
 
         // Get ProjectID from previous page
-        String projectID = "-NSMCDuj1claJ6b_Q6nw";
+        projectID = "-NSMCDuj1claJ6b_Q6nw";
 
         // UI Views
         grp_name = findViewById(R.id.grp_name);
@@ -113,7 +113,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
             }
         });
-        
+
         /** APPLYING TO A GROUP
          * If user presses the `Apply` button
          *  Adds current user to the pending approval list of the group if criterias are met:
