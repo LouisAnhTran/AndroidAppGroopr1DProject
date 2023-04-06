@@ -130,7 +130,7 @@
         android:id="@+id/EditGroupNameHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Group Name"
+        android:text="Group Name"
         app:layout_constraintBottom_toTopOf="@+id/EditGroupNameInput"
         app:layout_constraintStart_toStartOf="@+id/EditGroupNameInput" />
 
@@ -201,7 +201,6 @@
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
-            android:hint="50.004 Algorithms"
             android:textSize="15sp"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -219,18 +218,18 @@
         android:id="@+id/EditModuleHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Module"
+        android:text="Module"
         app:layout_constraintBottom_toTopOf="@+id/EditModuleInput"
         app:layout_constraintStart_toStartOf="@+id/EditModuleInput" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="209dp"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/EditModuleInput"
         app:layout_constraintEnd_toEndOf="@+id/EditModuleInput"
-        app:layout_constraintTop_toTopOf="@+id/EditModuleInput"
-        />
+        app:layout_constraintStart_toStartOf="@+id/EditModuleInput"
+        app:layout_constraintTop_toTopOf="@+id/EditModuleInput" />
 
     <Spinner
         android:id="@+id/spinner5"
