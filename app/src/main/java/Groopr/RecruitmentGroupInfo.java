@@ -1,17 +1,12 @@
 package Groopr;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,12 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import Groopr.Model.Project;
 import Groopr.Model.RecruitmentAdapter;
 
-public class RecruitmentGroupInfo extends AppCompatWithToolbar {
+public class RecruitmentGroupInfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
     TextView grp_name;
     TextView mod_name;
@@ -52,11 +46,6 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitment2);
-
-        // using toolbar as ActionBar
-        setSupportActionBar(myToolbar);
 
         // UI Views
         grp_name = findViewById(R.id.grp_name);
@@ -97,6 +86,8 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
 
             }
         });
+
+
 
         /** APPLYING TO A GROUP
          * If user presses the `Apply` button
@@ -152,11 +143,5 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         toast.show();
 
     }
-
-    @Override
-    protected int getCurrentMenuId() {
-        return 0;
-    }
-
 }
 

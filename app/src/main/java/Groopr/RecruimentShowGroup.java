@@ -42,7 +42,7 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
 
     private ArrayList<ProjectSupport> projectList;
 
-    private static final String TAG="PassProjectID";
+    static final String TAG="PassProjectID";
 
 
     @Override
