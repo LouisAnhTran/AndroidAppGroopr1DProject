@@ -13,9 +13,21 @@ public class ProjectSupport {
     private String message;
     private String skillNeeded;
 
+    private String moduleName;
+
     private ArrayList<String> applicationsList;
 
     private String teamLeaderId;
+
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+
 
     public String getProjectID() {
         return projectID;
@@ -81,9 +93,6 @@ public class ProjectSupport {
         this.skillNeeded = skillNeeded;
     }
 
-    public ProjectSupport() {
-        this.studentList=new ArrayList<String>();
-    }
 
     public ArrayList<String> getApplicationsList() {
         return applicationsList;
@@ -93,9 +102,14 @@ public class ProjectSupport {
         this.applicationsList = applicationsList;
     }
 
-    public ProjectSupport(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
+    public ProjectSupport() {
+        this.studentList=new ArrayList<String>();
+    }
+
+    public ProjectSupport(String projectName, String moduleID, String moduleName,List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
         this.projectName = projectName;
         this.moduleID = moduleID;
+        this.moduleName=moduleName;
         this.studentList = studentList;
         this.maxNumberOfMember = maxNumberOfMember;
         this.message = message;

@@ -53,6 +53,7 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
 
         title=findViewById(R.id.moduleName);
 
+        Log.d("Check",this.moduleID.toString());
 
         title.setText(this.fullNameModule.toString());
 
@@ -60,11 +61,14 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 RecruimentShowGroup.this.projectList=new ArrayList<ProjectSupport>();
+
                 for(DataSnapshot object:snapshot.getChildren()){
                     ProjectSupport t1=object.getValue(ProjectSupport.class);
                     t1.setProjectID(object.getKey());
                     projectList.add(t1);
                 }
+
+                Log.d("Check1",projectList.toString());
 
 
                 RecyclerView recyclerView=findViewById(R.id.mRecycleView);
