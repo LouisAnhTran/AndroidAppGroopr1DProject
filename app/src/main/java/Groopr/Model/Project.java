@@ -99,7 +99,7 @@ public class Project {
 
     public Project(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
         this.projectName = projectName;
-        this.moduleID = moduleID.substring(0, 7);
+        this.moduleID = moduleID.substring(0, 6);
         this.moduleName = moduleID;
         this.studentList = studentList;
         this.maxNumberOfMember = maxNumberOfMember;
