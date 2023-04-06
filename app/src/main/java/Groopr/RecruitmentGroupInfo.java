@@ -23,36 +23,47 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import Groopr.Model.MembersAdapter;
 import Groopr.Model.Project;
 import Groopr.Model.RecruitmentAdapter;
+import Groopr.Model.Student;
 
 public class RecruitmentGroupInfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    TextView grp_name;
-    TextView mod_name;
-    TextView grp_desc;
-    Button apply;
+    private TextView grp_name;
+    private TextView mod_name;
+    private TextView grp_desc;
+    private Button apply;
 
-    String projectID;
-    String curr_UID;
-    Integer group_max_size;
-    ArrayList<String> application_list;
-    List<String> member_list;
+    private String projectID;
+    private TextView subheader;
+    private String curr_UID;
+    private Integer group_max_size;
+    private ArrayList<String> application_list;
+    private List<String> member_list;
+    RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
 
+        // Get ProjectID from previous page
+        String projectID = "-NSLEPJsA5S2oqpmPA_B";
+
         // UI Views
         grp_name = findViewById(R.id.grp_name);
         mod_name = findViewById(R.id.mod_name);
         grp_desc = findViewById(R.id.grp_desc);
         apply = findViewById(R.id.apply);
-
+        recyclerView = findViewById(R.id.r);
+        subheader = findViewById(R.id.subheader);
 
         /**
          * Loading group details from firebase
@@ -62,24 +73,34 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                projectID = "-NRv56aotjPTxkYtPNO8";
                 Project project = snapshot.child(projectID).getValue(Project.class);
 
                 // Set details on frontend using project details
                 grp_name.setText(project.getProjectName());
                 mod_name.setText(project.getModuleID());
                 grp_desc.setText(project.getMessage());
+                subheader.setText(project.getModuleID());
 
                 // saving attributes
                 group_max_size = project.getMaxNumberOfMember();
                 application_list = project.getApplicationsList();
                 member_list = project.getStudentList();
 
-                // Getting members
-                for (String member: project.getStudentList()) {
-                    Log.d(member, member);
-                    // TODO: List/Recycle view stuff
+                // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
+                // TODO: Replace recycler view's `member_list` with `student_names`
+                /**
+                ArrayList<String> student_names = new ArrayList<>();
+                for (String member: member_list) {
+                    student_names.add(member);
                 }
+                 */
+
+                // Inserting members into recycle view
+                RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
+                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
+                recyclerView.setAdapter( adapter );
+                recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -105,7 +126,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
                     curr_UID = user.getUid();
                     user_apply(curr_UID, projectID);
                 }
-                user_apply("SUP", projectID);
+
             }
         });
     }
