@@ -89,7 +89,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
                 // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
                 // TODO: Replace recycler view's `member_list` with `student_names`
 
-                ArrayList<String> student_names = new ArrayList<>();
+                List<String> student_names = new ArrayList<>();
                 for (String member: member_list) {
                     mDatabase.child("Student").child(member).child("fullName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
@@ -104,10 +104,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
 
                 // Inserting members into recycle view
-                RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
-                recyclerView.setAdapter( adapter );
                 recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
+                RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
+                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
+                recyclerView.setAdapter( adapter );
+
 
             }
             @Override
