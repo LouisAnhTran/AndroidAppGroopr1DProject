@@ -46,6 +46,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
     private Integer group_max_size;
     private ArrayList<String> application_list;
     private List<String> member_list;
+    private List<String> student_names;
     RecyclerView recyclerView;
 
 
@@ -88,25 +89,21 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
                 // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
                 // TODO: Replace recycler view's `member_list` with `student_names`
-
-                List<String> student_names = new ArrayList<>();
+                student_names = new ArrayList<>();
                 for (String member: member_list) {
                     mDatabase.child("Student").child(member).child("fullName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                             student_names.add(String.valueOf(task.getResult().getValue()));
-                            Log.d("Name", String.valueOf(task.getResult().getValue()));
                         }
                     });
 
                 }
 
-
-
                 // Inserting members into recycle view
                 recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
                 RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
+                        = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
                 recyclerView.setAdapter( adapter );
 
 
@@ -116,9 +113,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
             }
         });
-
-
-
+        
         /** APPLYING TO A GROUP
          * If user presses the `Apply` button
          *  Adds current user to the pending approval list of the group if criterias are met:
