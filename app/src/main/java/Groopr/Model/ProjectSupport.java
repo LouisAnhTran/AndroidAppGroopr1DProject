@@ -18,6 +18,16 @@ public class ProjectSupport extends Project{
 
     private String teamLeaderId;
 
+    public String getModuleName() {
+        return moduleName;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+
+
     public String getProjectID() {
         return projectID;
     }
@@ -48,13 +58,6 @@ public class ProjectSupport extends Project{
 
     public void setModuleID(String moduleID) {
         this.moduleID = moduleID;
-    }
-    public String getModuleName() {
-        return moduleName;
-    }
-
-    public void setModuleName(String moduleName) {
-        this.moduleName = moduleName;
     }
 
 
@@ -90,9 +93,6 @@ public class ProjectSupport extends Project{
         this.skillNeeded = skillNeeded;
     }
 
-    public ProjectSupport() {
-        this.studentList=new ArrayList<String>();
-    }
 
     public ArrayList<String> getApplicationsList() {
         return applicationsList;
@@ -102,7 +102,11 @@ public class ProjectSupport extends Project{
         this.applicationsList = applicationsList;
     }
 
-    public ProjectSupport(String projectName, String moduleID, List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
+    public ProjectSupport() {
+        this.studentList=new ArrayList<String>();
+    }
+
+    public ProjectSupport(String projectName, String moduleID, String moduleName,List<String> studentList, int maxNumberOfMember, String message, String skillNeeded, String teamLeaderID,ArrayList<String> applicationsList) {
         this.projectName = projectName;
         this.moduleID = moduleID.substring(0, 7);
         this.moduleName = moduleID;
