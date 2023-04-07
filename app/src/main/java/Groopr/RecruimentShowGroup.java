@@ -36,7 +36,7 @@ public class RecruimentShowGroup extends AppCompatActivity implements ShowGroupR
 
     private ArrayList<ProjectSupport> projectList;
 
-    static final String TAG="PassProjectID";
+    public static final String TAG="PassProjectID";
 
 
     @Override
