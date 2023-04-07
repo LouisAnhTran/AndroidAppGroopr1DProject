@@ -19,15 +19,18 @@ import java.util.List;
 public class MyGroupsAdapter extends RecyclerView.Adapter<MyGroupsAdapter.ViewHolder> {
 
     Context context;
-    private List<Project> projectList;
+    private List<ProjectSupport> projectList;
     ArrayList<Integer> listImage;
+
+    private final ShowGroupRecycleViewInterface showGroupRecycleViewInterface;
 
     int randomNumber;
 
-    public MyGroupsAdapter(Context context, List<Project> projectList) {
+    public MyGroupsAdapter(Context context, List<ProjectSupport> projectList,ShowGroupRecycleViewInterface showGroupRecycleViewInterface) {
         Log.d("MyGroupsAdapter", "constructor called");
         this.context = context;
         this.projectList = projectList;
+        this.showGroupRecycleViewInterface=showGroupRecycleViewInterface;
         listImage=new ArrayList<Integer>();
         listImage.add(R.drawable.robot1);
         listImage.add(R.drawable.robot2);
@@ -44,14 +47,14 @@ public class MyGroupsAdapter extends RecyclerView.Adapter<MyGroupsAdapter.ViewHo
         /** This is where you can inflate the layout (Giving a look to our rows) **/
         LayoutInflater inflater=LayoutInflater.from(context);
         View view=inflater.inflate(R.layout.my_groups_item,parent,false);
-        return new MyGroupsAdapter.ViewHolder(view);
+        return new MyGroupsAdapter.ViewHolder(view, showGroupRecycleViewInterface);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Set the project name and other relevant information in the ViewHolder
-        holder.textViewModuleID.setText(this.projectList.get(position).getModuleID());
+        holder.textViewModuleID.setText(this.projectList.get(position).getModuleName());
         holder.textViewShowSkills.setText(this.projectList.get(position).getSkillNeeded());
         holder.textViewGroupName.setText(this.projectList.get(position).getProjectName());
         holder.textViewNumberMembers.setText(String.valueOf(this.projectList.get(position).getStudentList().size()));
@@ -70,7 +73,7 @@ public class MyGroupsAdapter extends RecyclerView.Adapter<MyGroupsAdapter.ViewHo
         TextView textViewNumberMembers;
         TextView textViewGroupName;
         TextView textViewShowSkills;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, ShowGroupRecycleViewInterface showGroupRecycleViewInterface) {
             super(itemView);
             imageGroup=itemView.findViewById(R.id.groupPhoto);
             textViewModuleID =itemView.findViewById(R.id.moduleID);
@@ -78,7 +81,18 @@ public class MyGroupsAdapter extends RecyclerView.Adapter<MyGroupsAdapter.ViewHo
             textViewNumberMembers=itemView.findViewById(R.id.groupMember);
             textViewShowSkills=itemView.findViewById(R.id.skillNeeded);
 
-        }
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (showGroupRecycleViewInterface != null) {
+                        int pos = getAdapterPosition();
 
+                        if (pos != RecyclerView.NO_POSITION) {
+                            showGroupRecycleViewInterface.OnItemClick(pos);
+                        }
+                    }
+                }
+            });
+        }
     }
 }
