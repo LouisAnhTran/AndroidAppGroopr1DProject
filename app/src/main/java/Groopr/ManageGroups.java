@@ -67,8 +67,11 @@ public class ManageGroups extends AppCompatWithToolbar {
         setSupportActionBar(myToolbar);
 
         // Attributes
-        // TODO: ProjectID from prev page
-        projectID = "-NSMevoBVnet7Ulj8-Jo";
+        Intent init_intent = getIntent();
+        projectID = init_intent.getStringExtra(RecruitmentGroupInfo.TAG);
+        // For testing purposes, hardcoded projectID
+        //Log.d("Check 5",projectID);
+        // projectID = "-NSMevoBVnet7Ulj8-Jo";
         is_admin = false;
         curr_UID = "";
 

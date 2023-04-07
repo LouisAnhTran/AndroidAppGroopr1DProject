@@ -47,6 +47,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private String projectID;
     private TextView subheader;
     private String curr_UID;
+    public static final String TAG = "PassProjectID";
     private Integer group_max_size;
     private ArrayList<String> application_list;
     private List<String> member_list;
@@ -65,10 +66,12 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         setSupportActionBar(myToolbar);
 
         // TODO: Get ProjectID from previous page
-        //Intent intent=getIntent();
-        //String projectID=intent.getStringExtra(RecruimentShowGroup.TAG);
-        //Log.d("Check 5",projectID);
-        projectID = "-NSMrCwy_w8wls05hEdh";
+        Intent init_intent = getIntent();
+        projectID = init_intent.getStringExtra(RecruimentShowGroup.TAG);
+        Log.d("Check 5",projectID);
+
+        // Hardcoded for testing
+        //projectID = "-NSMrCwy_w8wls05hEdh";
 
         // UI Views
         grp_name = findViewById(R.id.grp_name);
@@ -113,8 +116,10 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
                 /**
                  * Move user to manage group if they are already a part of the group
                  */
+                curr_UID = "raTtLq4mPddpFtZEJ5Gj7WTXxQE2";
                 if (curr_UID != null && member_list.contains(curr_UID)) {
                     Intent intent = new Intent(RecruitmentGroupInfo.this, ManageGroups.class);
+                    intent.putExtra(TAG, projectID);
                     startActivity(intent);
                 }
 
