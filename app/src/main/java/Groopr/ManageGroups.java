@@ -1,6 +1,7 @@
 package Groopr;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -148,6 +149,24 @@ public class ManageGroups extends AppCompatWithToolbar {
                 // Toast to show updates
                 Toast toast = Toast.makeText(getApplicationContext(), update, Toast.LENGTH_SHORT);
                 toast.show();
+            }
+        });
+
+        editGroup.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ManageGroups.this, EditGroupsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        manageApps.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ManageGroups.this, Applications.class);
+                startActivity(intent);
             }
         });
     }
