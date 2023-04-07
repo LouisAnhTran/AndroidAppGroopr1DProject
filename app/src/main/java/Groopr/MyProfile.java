@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +30,7 @@ import java.util.Random;
 
 import Groopr.Model.Student;
 
-public class MyProfile extends AppCompatActivity {
+public class MyProfile extends AppCompatWithToolbar {
 
     private FirebaseUser user;
 
@@ -56,6 +57,11 @@ public class MyProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.myprofile);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_profile);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         user= FirebaseAuth.getInstance().getCurrentUser();
 
@@ -136,11 +142,11 @@ public class MyProfile extends AppCompatActivity {
             }
         });
 
+    }
 
-
-
-
-
+    @Override
+    protected int getCurrentMenuId() {
+        return R.id.ProfilePage;
     }
 
 }

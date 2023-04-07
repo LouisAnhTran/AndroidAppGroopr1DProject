@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,7 +35,7 @@ import Groopr.Model.Project;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
 
-public class RecruitmentGroupInfo extends AppCompatActivity {
+public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private DatabaseReference mDatabase;
     private FirebaseUser user;
     private TextView grp_name;
@@ -192,7 +193,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         // Show toast
         Toast toast = Toast.makeText(getApplicationContext(), update, Toast.LENGTH_SHORT);
         toast.show();
+    }
 
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
     }
 }
 

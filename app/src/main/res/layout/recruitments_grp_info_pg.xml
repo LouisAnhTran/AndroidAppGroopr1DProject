@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     android:background="@drawable/recruitments_info_pg">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_recruitment1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/orangeApp"
+            android:paddingStart="10dp"
+            app:navigationIcon="@drawable/navbar_icon"
+            app:title=" "
+            android:theme="@style/MyToolbarStyle"
+            android:popupTheme="@style/MyToolbarStyle"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <TextView
         android:id="@+id/userNameProfile"
         android:layout_width="249dp"

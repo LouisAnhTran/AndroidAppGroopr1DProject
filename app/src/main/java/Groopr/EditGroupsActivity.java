@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.Groopr.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import Groopr.Model.ProjectSupport;
 
-public class EditGroupsActivity extends AppCompatActivity {
+public class EditGroupsActivity extends AppCompatWithToolbar {
     Button EditMemberButton, EditGroupButton;
     TextInputEditText inputGroupSkill, inputGroupDescription, groupNameInput;
 
@@ -27,6 +28,11 @@ public class EditGroupsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_group_page);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_editgroup);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         EditMemberButton = findViewById(R.id.EditMemberButton);
         EditGroupButton = findViewById(R.id.EditGroupButton);
@@ -69,7 +75,10 @@ public class EditGroupsActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
+    }
 }
