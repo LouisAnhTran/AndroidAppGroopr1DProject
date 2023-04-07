@@ -41,6 +41,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private TextView grp_name;
     private TextView mod_name;
     private TextView grp_desc;
+    private TextView skillList;
     private Button apply;
 
     private String projectID;
@@ -76,6 +77,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         apply = findViewById(R.id.apply);
         recyclerView = findViewById(R.id.r);
         subheader = findViewById(R.id.subheader);
+        skillList = findViewById(R.id.skillList);
         curr_UID = null;
 
 
@@ -95,6 +97,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
                 mod_name.setText(project.getModuleID());
                 grp_desc.setText(project.getMessage());
                 subheader.setText(project.getModuleID());
+                skillList.setText(project.getSkillNeeded());
 
                 // saving attributes
                 group_max_size = project.getMaxNumberOfMember();

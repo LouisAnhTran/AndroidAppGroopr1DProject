@@ -35,7 +35,6 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:text="Manage Groups"
-        android:fontFamily="@font/poppins"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:autoSizeTextType="uniform"
@@ -49,7 +48,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="45dp"
         android:text="You can only edit group if you are an admin."
-        android:fontFamily="@font/poppins"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#707070"
         app:autoSizeTextType="uniform"
@@ -65,7 +63,6 @@
         android:backgroundTint="@color/orangelight"
         android:background="@drawable/white_card"
         android:text="Edit Group"
-        android:fontFamily="@font/poppins_bold"
         android:textColor="@color/orangeStrong"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +79,6 @@
         android:text="Leave Group"
         android:textColor="@color/orangeStrong"
         android:textAllCaps="false"
-        android:fontFamily="@font/poppins_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/manageApplications"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +162,6 @@
         android:layout_height="45dp"
         android:background="@drawable/white_card"
         android:text="Manage Applications"
-        android:fontFamily="@font/poppins_bold"
         android:backgroundTint="@color/orangelight"
         android:textColor="@color/orangeStrong"
         android:textAllCaps="false"
@@ -184,7 +179,6 @@
         android:textAlignment="center"
         android:textColor="#BD7000"
         android:textSize="20sp"
-        android:fontFamily="@font/poppins_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -198,7 +192,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="86dp"
         android:text="@string/looking_for"
-        android:fontFamily="@font/poppins_bold"
         android:textAlignment="center"
         android:textColor="#BD7000"
         android:textSize="20sp"
@@ -208,15 +201,15 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="153dp"
+    <TextView
+        android:id="@+id/skillList2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/LookingForText"
         app:layout_constraintStart_toStartOf="@+id/LookingForText"
-        app:layout_constraintTop_toBottomOf="@+id/LookingForText"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/LookingForText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

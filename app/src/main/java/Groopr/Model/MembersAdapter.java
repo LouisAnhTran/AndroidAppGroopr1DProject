@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +40,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersH
     public void onBindViewHolder(@NonNull MembersHolder holder, int position) {
         //TODO 2 get the data point at position from the data source and assign it to the Viewholder
         holder.getMemberName().setText(membersList.get(position));
+        holder.getMemberImage().setImageResource(R.drawable.robot1);
     }
 
     @Override
@@ -50,10 +52,13 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersH
     public class MembersHolder extends RecyclerView.ViewHolder{
 
         private TextView memberName;
+        private ImageView memberImage;
 
         public MembersHolder(@NonNull View itemView) {
             super(itemView);
             memberName = itemView.findViewById(R.id.MemberText);
+            memberImage = itemView.findViewById(R.id.MemberImage);
+
 
             // TODO 4 Write code to detect a long click
             /*** detecting a longClick and deleting the list item
@@ -66,6 +71,9 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersH
 
         public TextView getMemberName() {
             return memberName;
+        }
+        public ImageView getMemberImage() {
+            return memberImage;
         }
     }
 }

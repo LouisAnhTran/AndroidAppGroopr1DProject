@@ -51,6 +51,7 @@ public class ManageGroups extends AppCompatWithToolbar {
     private TextView groupName;
     private TextView modName;
     private TextView info;
+    private TextView skillList;
     private Button editGroup;
     private Button leaveGroup;
     private Button manageApps;
@@ -80,6 +81,7 @@ public class ManageGroups extends AppCompatWithToolbar {
         modName = findViewById(R.id.modName);
         info = findViewById(R.id.info);
         recyclerView = findViewById(R.id.recyclerView);
+        skillList = findViewById(R.id.skillList2);
 
         // Hiding edit and manage initially
         editGroup.setVisibility(View.INVISIBLE);
@@ -97,6 +99,7 @@ public class ManageGroups extends AppCompatWithToolbar {
                 modName.setText(project.getModuleID());
                 info.setText(project.getMessage());
                 member_list = project.getStudentList();
+                skillList.setText(project.getSkillNeeded());
 
                 // check for admin
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
