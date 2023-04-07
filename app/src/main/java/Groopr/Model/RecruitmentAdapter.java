@@ -46,7 +46,7 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
     public RecruitmentAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         /** This is where you can inflate the layout (Giving a look to our rows) **/
         LayoutInflater inflater=LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.recycle_view_row_for_recruiment_show_group,parent,false);
+        View view = inflater.inflate(R.layout.recycle_view_row_for_recruiment_show_group,parent,false);
         return new RecruitmentAdapter.MyViewHolder(view,showGroupRecycleViewInterface);
     }
 
