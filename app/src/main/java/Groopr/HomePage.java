@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.Groopr.R;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatWithToolbar {
 
     Button myGroupsButton;
     Button recruimentButton;
@@ -20,13 +21,19 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_home);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
+
         myGroupsButton = findViewById(R.id.myGroupsButton);
         recruimentButton=findViewById(R.id.recruimentButton);
         profileButton=findViewById(R.id.profileButton);
         logoutButton=findViewById(R.id.logOutButton);
 
 
-        /** Navigate to recruiment page **/
+        /** Navigate to recruitment page **/
         recruimentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,5 +71,10 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected int getCurrentMenuId() {
+        return R.id.HomePage;
     }
 }
