@@ -36,6 +36,7 @@ import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
 
 
+
 public class ManageGroups extends AppCompatWithToolbar {
     private String projectID;
     private DatabaseReference mDatabase;
@@ -57,6 +58,7 @@ public class ManageGroups extends AppCompatWithToolbar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_groups_page);
+
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_managegroups);
 
