@@ -57,7 +57,11 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
 
+
         // TODO: Get ProjectID from previous page
+        //Intent intent=getIntent();
+        //String projectID=intent.getStringExtra(RecruimentShowGroup.TAG);
+        //Log.d("Check 5",projectID);
         projectID = "-NSMrCwy_w8wls05hEdh";
 
         // UI Views

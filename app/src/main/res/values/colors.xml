@@ -10,4 +10,6 @@
     <color name="orangeApp">#E48700</color>
     <color name="greyApp">#8D8D8D</color>
     <color name="orangeGrey">#FFB82D</color>
+    <color name="warningred">#FF2D2D</color>
+    <color name="orangeStrong">#BD7000</color>
 </resources>
