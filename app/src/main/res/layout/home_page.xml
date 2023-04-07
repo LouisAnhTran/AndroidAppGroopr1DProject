@@ -7,6 +7,28 @@
     android:background="@drawable/bg1_groopr"
     tools:context="Groopr.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_home"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#ECBC76"
+            android:paddingStart="10dp"
+            app:navigationIcon="@drawable/navbar_icon"
+            app:title=" "
+            android:theme="@style/MyToolbarStyle"
+            android:popupTheme="@style/MyToolbarStyle"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <Button
         android:id="@+id/recruimentButton"
         android:layout_width="280dp"

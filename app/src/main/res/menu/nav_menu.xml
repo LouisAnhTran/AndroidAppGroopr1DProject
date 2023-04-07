@@ -8,6 +8,11 @@
         android:title="Quick Navigate"
         app:showAsAction="never">
         <menu>
+            <item android:id="@+id/HomePage"
+                android:title="Home"
+                android:icon="@drawable/baseline_home_24"
+                app:showAsAction="never"/>
+
             <item android:id="@+id/RecruitmentPage"
                 android:title="@string/recruitment"
                 android:icon="@drawable/nav_recruitment"

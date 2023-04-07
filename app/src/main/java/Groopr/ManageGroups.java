@@ -59,7 +59,6 @@ public class ManageGroups extends AppCompatWithToolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_groups_page);
 
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_managegroups);
 
         // using toolbar as ActionBar

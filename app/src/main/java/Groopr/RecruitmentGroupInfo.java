@@ -58,6 +58,10 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recruitments_grp_info_pg);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitment1);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         // TODO: Get ProjectID from previous page
         //Intent intent=getIntent();

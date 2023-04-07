@@ -33,20 +33,25 @@ public abstract class AppCompatWithToolbar extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.HomePage:
+                Toast.makeText(this, "Back to Home", Toast.LENGTH_SHORT).show();
+                Intent backhome = new Intent(this, HomePage.class);
+                startActivity(backhome);
+                return true;
             case R.id.RecruitmentPage:
                 Toast.makeText(this, "To Recruitments Page", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, RecruimentHomePage.class);
-                startActivity(intent);
+                Intent recruitmenthome = new Intent(this, RecruimentHomePage.class);
+                startActivity(recruitmenthome);
                 return true;
             case R.id.MyGroupsPage:
                 Toast.makeText(this, "To My Groups Page", Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(this, MyGroupsActivity.class);
-                startActivity(intent1);
+                Intent mygroupspage = new Intent(this, MyGroupsActivity.class);
+                startActivity(mygroupspage);
                 return true;
             case R.id.ProfilePage:
                 Toast.makeText(this, "To Profile Page", Toast.LENGTH_SHORT).show();
-                Intent intent2 = new Intent(this, MyProfile.class);
-                startActivity(intent2);
+                Intent myprofilepage = new Intent(this, MyProfile.class);
+                startActivity(myprofilepage);
                 return true;
         }
         return super.onOptionsItemSelected(item);
