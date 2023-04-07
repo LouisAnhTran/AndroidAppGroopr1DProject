@@ -3,10 +3,15 @@ package Groopr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +30,7 @@ import Groopr.Model.FactoryDesignForPillar.Pillar;
 import Groopr.Model.FactoryDesignForPillar.ShapeFactory;
 import Groopr.Model.Student;
 
-public class RecruimentHomePage extends AppCompatActivity {
+public class RecruimentHomePage extends AppCompatWithToolbar {
     private Button module1;
     private Button module2;
     private Button module3;
@@ -54,6 +59,11 @@ public class RecruimentHomePage extends AppCompatActivity {
         module3=findViewById(R.id.module3);
         module4=findViewById(R.id.module4);
         title1=findViewById(R.id.titlePillarTerm);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_recruitmentpage);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
 
         mDatabase= FirebaseDatabase.getInstance().getReference();
@@ -132,4 +142,10 @@ public class RecruimentHomePage extends AppCompatActivity {
         intent.putExtra(RecruimentHomePage.TAG1,b1.getText());
         startActivity(intent);
     }
+
+    @Override
+    protected int getCurrentMenuId() {
+        return R.id.RecruitmentPage;
+    }
+
 }

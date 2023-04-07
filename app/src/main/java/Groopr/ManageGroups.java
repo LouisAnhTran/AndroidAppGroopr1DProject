@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,7 +36,7 @@ import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
 
 
-public class ManageGroups extends AppCompatActivity {
+public class ManageGroups extends AppCompatWithToolbar {
     private String projectID;
     private DatabaseReference mDatabase;
     RecyclerView recyclerView;
@@ -56,6 +57,11 @@ public class ManageGroups extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_groups_page);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_managegroups);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         // Attributes
         // TODO: ProjectID from prev page
@@ -166,5 +172,10 @@ public class ManageGroups extends AppCompatActivity {
         editGroup.setVisibility(View.VISIBLE);
         Toast toast = Toast.makeText(getApplicationContext(), "Welcome, team leader!", Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
     }
 }

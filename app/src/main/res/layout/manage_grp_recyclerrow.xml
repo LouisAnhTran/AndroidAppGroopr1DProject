@@ -28,7 +28,7 @@
                 android:background="@drawable/text_border"/>
 
             <TextView
-                android:id="@+id/GroupDesc2"
+                android:id="@+id/MemberText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Member name"

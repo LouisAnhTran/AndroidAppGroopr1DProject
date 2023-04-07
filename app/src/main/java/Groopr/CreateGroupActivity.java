@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,7 +35,7 @@ import Groopr.Model.Student;
 
 
 // TESTTEST
-public class CreateGroupActivity extends AppCompatActivity {
+public class CreateGroupActivity extends AppCompatWithToolbar {
     //EditText groupNameInput, inputCapacity, inputGroupDescription, inputGroupSkill;
 
     TextInputEditText selectModule, groupNameInput, inputGroupDescription, inputGroupSkill;
@@ -52,6 +53,11 @@ public class CreateGroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_group_page);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_creategroup);
+
+        // using toolbar as ActionBar
+        setSupportActionBar(myToolbar);
 
         groupNameInput = findViewById(R.id.groupNameInput);
         inputCapacity = findViewById(R.id.spinner5);
@@ -172,6 +178,10 @@ public class CreateGroupActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    protected int getCurrentMenuId() {
+        return 0;
+    }
 
 }
 
