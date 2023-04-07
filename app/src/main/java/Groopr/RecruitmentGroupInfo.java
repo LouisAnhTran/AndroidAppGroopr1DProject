@@ -36,6 +36,7 @@ import Groopr.Model.Student;
 
 public class RecruitmentGroupInfo extends AppCompatActivity {
     private DatabaseReference mDatabase;
+    private FirebaseUser user;
     private TextView grp_name;
     private TextView mod_name;
     private TextView grp_desc;
@@ -57,7 +58,7 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         setContentView(R.layout.recruitments_grp_info_pg);
 
         // TODO: Get ProjectID from previous page
-        projectID = "-NSMCDuj1claJ6b_Q6nw";
+        projectID = "-NSMrCwy_w8wls05hEdh";
 
         // UI Views
         grp_name = findViewById(R.id.grp_name);
@@ -66,17 +67,13 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
         apply = findViewById(R.id.apply);
         recyclerView = findViewById(R.id.r);
         subheader = findViewById(R.id.subheader);
+        curr_UID = null;
 
-        // Loading user ID from firebase
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            curr_UID = user.getUid();;
-        }
 
         /**
          * Loading group details from firebase
         */
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         // TODO: Get ProjectID from previous page
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
@@ -95,6 +92,21 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
                 application_list = project.getApplicationsList();
                 member_list = project.getStudentList();
 
+                // Get user details
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    curr_UID = user.getUid();;
+                }
+
+                /**
+                 * Move user to manage group if they are already a part of the group
+                 */
+                if (curr_UID != null && member_list.contains(curr_UID)) {
+                    Intent intent = new Intent(RecruitmentGroupInfo.this, ManageGroups.class);
+                    startActivity(intent);
+                }
+
+
                 // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
                 // TODO: Replace recycler view's `member_list` with `student_names`
                 student_names = new ArrayList<>();
@@ -108,10 +120,14 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
                 }
 
+                if (member_list.size() != 0) {
+                    Log.d("Size", "OK");
+                } else { Log.d("Size",  "Zero");}
+
                 // Inserting members into recycle view
                 recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
                 RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
+                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
                 recyclerView.setAdapter( adapter );
 
 
@@ -121,14 +137,6 @@ public class RecruitmentGroupInfo extends AppCompatActivity {
 
             }
         });
-
-        /**
-         * Move user to manage group if they are already a part of the group
-         */
-        if (member_list.contains(curr_UID)) {
-            Intent intent = new Intent(RecruitmentGroupInfo.this, ManageGroups.class);
-            startActivity(intent);
-        }
 
         /** APPLYING TO A GROUP
          * If user presses the `Apply` button
