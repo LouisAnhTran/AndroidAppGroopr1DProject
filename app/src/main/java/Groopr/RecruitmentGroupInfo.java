@@ -116,7 +116,6 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
                 /**
                  * Move user to manage group if they are already a part of the group
                  */
-                curr_UID = "raTtLq4mPddpFtZEJ5Gj7WTXxQE2";
                 if (curr_UID != null && member_list.contains(curr_UID)) {
                     Intent intent = new Intent(RecruitmentGroupInfo.this, ManageGroups.class);
                     intent.putExtra(TAG, projectID);
