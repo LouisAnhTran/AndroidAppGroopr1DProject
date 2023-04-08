@@ -40,6 +40,7 @@ import Groopr.Model.Student;
 
 public class ManageGroups extends AppCompatWithToolbar {
     private String projectID;
+    private String projectID_;
     private DatabaseReference mDatabase;
     RecyclerView recyclerView;
     private String teamleader_id;
@@ -71,6 +72,7 @@ public class ManageGroups extends AppCompatWithToolbar {
         // Attributes
         Intent init_intent = getIntent();
         projectID = init_intent.getStringExtra(RecruitmentGroupInfo.TAG);
+        projectID_ = init_intent.getStringExtra(MyGroupsActivity.TAG);
         // For testing purposes, hardcoded projectID
         //Log.d("Check 5",projectID);
         // projectID = "-NSMevoBVnet7Ulj8-Jo";
@@ -162,6 +164,7 @@ public class ManageGroups extends AppCompatWithToolbar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ManageGroups.this, EditGroupsActivity.class);
+                intent.putExtra(ManageGroups.TAG,ManageGroups.this.projectID_);
                 startActivity(intent);
             }
         });

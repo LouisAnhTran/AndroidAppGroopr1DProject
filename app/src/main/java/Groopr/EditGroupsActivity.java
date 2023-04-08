@@ -57,15 +57,15 @@ public class EditGroupsActivity extends AppCompatWithToolbar {
         String groupName = groupNameInput.getText().toString();
 
         Intent intent = getIntent();
-        String projectID = intent.getStringExtra(MyGroupsActivity.TAG);
+        String projectID = intent.getStringExtra(ManageGroups.TAG);
         DatabaseReference projectRef = FirebaseDatabase.getInstance().getReference().child("Project").child(projectID);
         projectRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ProjectSupport project = snapshot.getValue(ProjectSupport.class);
-                project.setSkillNeeded(groupSkill);
-                project.setMessage(groupDescription);
-                project.setProjectName(groupName);
+                if (!groupSkill.isEmpty()) project.setSkillNeeded(groupSkill);
+                if (!groupDescription.isEmpty()) project.setMessage(groupDescription);
+                if (!groupName.isEmpty()) project.setProjectName(groupName);
                 projectRef.setValue(project);
             }
 

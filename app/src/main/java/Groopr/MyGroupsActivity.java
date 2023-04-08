@@ -113,7 +113,8 @@ public class MyGroupsActivity extends AppCompatWithToolbar implements ShowGroupR
 
     @Override
     public void OnItemClick(int pos) {
-        Intent intent=new Intent(this,EditGroupsActivity.class);
+        // Intent intent=new Intent(this,EditGroupsActivity.class);
+        Intent intent=new Intent(this,ManageGroups.class);
         intent.putExtra(TAG,this.projects.get(pos).getProjectID().toString());
         startActivity(intent);
     }
