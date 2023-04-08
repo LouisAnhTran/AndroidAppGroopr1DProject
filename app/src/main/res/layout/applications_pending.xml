@@ -51,6 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewApplication"
         android:layout_width="409dp"
         android:layout_height="510dp"
         android:layout_marginTop="20dp"

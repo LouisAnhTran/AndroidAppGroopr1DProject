@@ -57,6 +57,8 @@ public class ManageGroups extends AppCompatWithToolbar {
     private Button leaveGroup;
     private Button manageApps;
 
+    public final static String TAG="Pass to application";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_groups_page);
@@ -169,6 +171,7 @@ public class ManageGroups extends AppCompatWithToolbar {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ManageGroups.this, Applications.class);
+                intent.putExtra(ManageGroups.TAG,ManageGroups.this.projectID);
                 startActivity(intent);
             }
         });

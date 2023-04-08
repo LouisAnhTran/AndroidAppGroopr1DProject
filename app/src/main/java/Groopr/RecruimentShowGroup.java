@@ -79,10 +79,6 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
                 Log.d("check2",moduleID);
 
 
-
-//                Log.d("Check1",projectSupportsFinal.toString());
-
-
                 RecyclerView recyclerView=findViewById(R.id.mRecycleView);
 
                 RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
@@ -96,33 +92,6 @@ public class RecruimentShowGroup extends AppCompatWithToolbar implements ShowGro
             }
         });
 
-
-
-//        mDatabase= FirebaseDatabase.getInstance().getReference();
-
-//        mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                ArrayList<Project> p1=new ArrayList<Project>();
-//                for(DataSnapshot d1: snapshot.getChildren()){
-//                    p1.add(d1.getValue(Project.class));
-//                }
-//
-//                Log.d("Our Info",p1.get(0).getMessage());
-//
-//                RecyclerView recyclerView=findViewById(R.id.mRecycleView);
-//
-//                RecruitmentAdapter adapter=new RecruitmentAdapter(RecruimentShowGroup.this,RecruimentShowGroup.this.projectList,RecruimentShowGroup.this);
-//                recyclerView.setAdapter(adapter);
-//                recyclerView.setLayoutManager(new LinearLayoutManager(RecruimentShowGroup.this));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
 
     }
 

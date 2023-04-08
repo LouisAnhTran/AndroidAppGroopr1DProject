@@ -32,6 +32,7 @@ import java.util.List;
 
 import Groopr.Model.MembersAdapter;
 import Groopr.Model.Project;
+import Groopr.Model.ProjectSupport;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
 
@@ -93,7 +94,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         mDatabase.child("Project").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Project project = snapshot.child(projectID).getValue(Project.class);
+                ProjectSupport project = snapshot.child(projectID).getValue(ProjectSupport.class);
 
                 // Set details on frontend using project details
                 grp_name.setText(project.getProjectName());
@@ -108,7 +109,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
                 member_list = project.getStudentList();
 
                 // Get user details
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null) {
                     curr_UID = user.getUid();;
                 }
@@ -163,11 +164,9 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Apply if user exists
-                if (user != null) {
+                // Apply if user exist
                     curr_UID = user.getUid();
                     user_apply(curr_UID, projectID);
-                }
 
             }
         });
