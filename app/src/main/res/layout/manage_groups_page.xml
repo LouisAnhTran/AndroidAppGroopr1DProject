@@ -59,14 +59,16 @@
         android:id="@+id/editGroup"
         android:layout_width="110dp"
         android:layout_height="50dp"
+        android:layout_marginStart="25dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/orangelight"
         android:background="@drawable/white_card"
+        android:backgroundTint="@color/orangelight"
         android:text="Edit Group"
-        android:textColor="@color/orangeStrong"
         android:textAllCaps="false"
+        android:textColor="@color/orangeStrong"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/manageApplications"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.51" />
 
@@ -137,10 +139,10 @@
         android:layout_height="122dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintTop_toBottomOf="@+id/mem_count"
+        app:layout_constraintVertical_bias="0.085" />
 
     <TextView
         android:id="@+id/info"
@@ -181,10 +183,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
+        app:layout_constraintTop_toBottomOf="@+id/manageApplications"
+        app:layout_constraintVertical_bias="0.077" />
 
     <TextView
         android:id="@+id/LookingForText"
@@ -199,6 +201,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.694"
         tools:ignore="MissingConstraints" />
 
     <TextView

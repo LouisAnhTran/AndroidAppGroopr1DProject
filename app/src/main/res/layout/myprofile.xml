@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Profile"
-        android:fontFamily="@font/poppins_bold"
+        android:fontFamily="@font/poppins"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/MyProfile2"
         app:layout_constraintStart_toStartOf="@+id/MyProfile2" />
@@ -46,6 +46,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/poppins"
         android:text="View and edit your details"
+        android:textColor="#707070"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -192,12 +193,14 @@
         android:id="@+id/profileButtonFinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="664dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/orangeApp"
-        android:text="Update Info"
         android:fontFamily="@font/poppins"
+        android:text="Update Info"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inputIdProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

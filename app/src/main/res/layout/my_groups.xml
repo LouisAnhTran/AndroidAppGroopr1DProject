@@ -101,11 +101,13 @@
         android:id="@+id/module1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/poppins"
         android:text="50.001 Introduction to Information Systems"
         android:textColor="#BD7000"
         app:layout_constraintBottom_toTopOf="@+id/module1card"
-        app:layout_constraintStart_toStartOf="@+id/module1card" />
+        app:layout_constraintStart_toStartOf="@+id/module1card"
+        app:layout_constraintTop_toBottomOf="@+id/createGroupButton" />
 
     <TextView
         android:id="@+id/module2"

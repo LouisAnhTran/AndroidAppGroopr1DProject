@@ -77,7 +77,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputGroupSkill"
             android:layout_width="349dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:paddingStart="15dp"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:hint="Java">
@@ -117,8 +118,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputGroupDescription"
             android:layout_width="349dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:background="@drawable/text_border"
+            android:paddingStart="15dp"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
             android:hint="Looking for people who love algorithms!"
@@ -139,7 +141,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/groupNameInput"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:paddingStart="15dp"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
@@ -177,7 +180,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputCapacity"
             android:layout_width="130dp"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
+            android:paddingStart="15dp"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:editable="false"
@@ -219,7 +223,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/selectModule"
             android:layout_width="349dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:paddingStart="15dp"
             android:background="@drawable/text_border"
             android:backgroundTint="@color/black"
             android:textColor="@color/black"
@@ -265,9 +270,11 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@null"
+        android:layout_marginLeft="180dp"
+        app:layout_constraintVertical_bias=".8"
         app:layout_constraintHorizontal_bias=".95"
         app:layout_constraintBottom_toBottomOf="@+id/EditSkillsInput"
         app:layout_constraintEnd_toEndOf="@+id/EditSkillsInput"
