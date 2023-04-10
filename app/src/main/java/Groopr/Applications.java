@@ -3,6 +3,7 @@ package Groopr;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +37,7 @@ public class Applications extends AppCompatActivity implements ApplicationInterf
 
     private ArrayList<Student> allStudentList;
 
+    private TextView groupInfo;
 
     private DatabaseReference mDatabase;
 
@@ -58,6 +60,8 @@ public class Applications extends AppCompatActivity implements ApplicationInterf
         this.projectID = init_intent.getStringExtra(ManageGroups.TAG);
         Log.d("Check 5",this.projectID);
 
+        this.groupInfo=findViewById(R.id.moduleNameApplication);
+
         this.mDatabase= FirebaseDatabase.getInstance().getReference();
 
         this.user= FirebaseAuth.getInstance().getCurrentUser();
@@ -68,10 +72,12 @@ public class Applications extends AppCompatActivity implements ApplicationInterf
 
         this.track=0;
 
+
         this.mDatabase.child("Project").child(this.projectID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Applications.this.projectSupport = snapshot.getValue(ProjectSupport.class);
+                Applications.this.groupInfo.setText(Applications.this.projectSupport.getProjectName());
                 Log.d("Check 5",Applications.this.projectID);
                 Log.d("Check 7", Applications.this.projectSupport.toString());
                 for (String st : Applications.this.projectSupport.getApplicationsList()) {

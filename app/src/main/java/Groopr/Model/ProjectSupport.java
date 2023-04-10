@@ -117,4 +117,8 @@ public class ProjectSupport extends Project{
         this.teamLeaderId=teamLeaderID;
         this.applicationsList=applicationsList;
     }
+
+    public String countNumberOfMember(){
+        return "Members: "+String.valueOf(this.getStudentList().size()) + "/" +String.valueOf(this.getMaxNumberOfMember());
+    }
 }

@@ -57,7 +57,7 @@ public class RecruitmentAdapter extends RecyclerView.Adapter<RecruitmentAdapter.
         holder.textViewGroupName.setText(this.listProject.get(position).getProjectName());
         holder.textViewShowSkills.setText(this.listProject.get(position).getSkillNeeded());
         holder.textViewgroupDescription.setText(this.listProject.get(position).getMessage());
-        holder.textViewNumberMembers.setText(String.valueOf(this.listProject.get(position).getStudentList().size()));
+        holder.textViewNumberMembers.setText(String.valueOf(this.listProject.get(position).countNumberOfMember()));
         holder.imageGroup.setImageResource(listImage.get(position%listImage.size()));
     }
 
