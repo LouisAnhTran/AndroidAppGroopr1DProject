@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,15 +44,17 @@ public class EditGroupsActivity extends AppCompatWithToolbar {
         EditGroupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editGroup();
-                Intent intent = new Intent(EditGroupsActivity.this, MyGroupsActivity.class);
-                startActivity(intent);
+                boolean success = editGroup();
+                if (success) {
+                    Intent intent = new Intent(EditGroupsActivity.this, MyGroupsActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
     }
 
-    void editGroup(){
+    boolean editGroup(){
         String groupSkill = inputGroupSkill.getText().toString();
         String groupDescription = inputGroupDescription.getText().toString();
         String groupName = groupNameInput.getText().toString();
@@ -59,6 +62,9 @@ public class EditGroupsActivity extends AppCompatWithToolbar {
         Intent intent = getIntent();
         String projectID = intent.getStringExtra(ManageGroups.TAG);
         DatabaseReference projectRef = FirebaseDatabase.getInstance().getReference().child("Project").child(projectID);
+
+        boolean isValidated = validateData(groupName, groupDescription, groupSkill);
+        if(!isValidated) return false;
         projectRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -74,7 +80,24 @@ public class EditGroupsActivity extends AppCompatWithToolbar {
 
             }
         });
+        return true;
+    }
 
+    boolean validateData(String groupName, String groupDescription, String groupSkill){
+
+        if(groupName.length() > 20){
+            Toast.makeText(this, "Group name exceeds 20 characters", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (groupDescription.length() > 50){
+            Toast.makeText(this, "Group description exceeds 50 characters", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (groupSkill.length() > 50){
+            Toast.makeText(this, "Group skills exceed 50 characters", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     @Override
