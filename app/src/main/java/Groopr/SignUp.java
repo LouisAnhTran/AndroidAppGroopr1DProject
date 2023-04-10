@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import Groopr.Model.Student;
+import Groopr.Model.StudentSupport;
 
 import com.example.Groopr.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +57,8 @@ public class SignUp extends AppCompatActivity {
     private AutoCompleteTextView dropDownPillar;
     ArrayAdapter<String> adapterTerm;
     ArrayAdapter<String> adapterPillar;
+
+    private ArrayList<StudentSupport> universalStudentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +113,23 @@ public class SignUp extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        mDatabase.child("Student").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SignUp.this.universalStudentList=new ArrayList<StudentSupport>();
+
+                for(DataSnapshot ob: snapshot.getChildren()){
+                    SignUp.this.universalStudentList.add(ob.getValue(StudentSupport.class));
+                    Log.d("Check 100",ob.getValue(StudentSupport.class).toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
 
         clickToSignUp.setOnClickListener(new View.OnClickListener() {
@@ -122,28 +142,22 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    private boolean checkOverlapAttribute(String attributeValue){
-        mDatabase=FirebaseDatabase.getInstance().getReference();
-        checkOverlap=true;
-        mDatabase.child("Student").orderByChild(attributeValue).equalTo(attributeValue).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Student> listStudent=new ArrayList<Student>();
-                for(DataSnapshot object:snapshot.getChildren()){
-                    listStudent.add(object.getValue(Student.class));
-                }
-                if(listStudent.size()==0){
-                    Log.d("OurInfo",listStudent.toString());
-                    SignUp.this.checkOverlap=false;
+    private boolean checkOverlapAttribute(String fieldName,String attributeValue){
+        if(fieldName.equalsIgnoreCase("studentID")){
+            for(StudentSupport ob: this.universalStudentList){
+                if(ob.getStudentID().equalsIgnoreCase(attributeValue)){
+                    return false;
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+        }
+        else if(fieldName.equalsIgnoreCase("userName")){
+            for(StudentSupport ob:this.universalStudentList){
+                if(ob.getUserName().equalsIgnoreCase(attributeValue)){
+                    return false;
+                }
             }
-        });
-        return false;
+        }
+        return true;
     }
 
     private boolean checkStudentIDExpression(String studentID){
@@ -170,17 +184,19 @@ public class SignUp extends AppCompatActivity {
             editTextPassWord.setError("Password at least 6 characters wrong");
             check=false;
         }
-        if(this.checkOverlapAttribute(userName)){
+        if(!this.checkOverlapAttribute("userName",userName)){
             editTextUserName.setError("User name already exists");
+            check=false;
         }
         if(this.checkStudentIDExpression(studentID)){
             editTextStudentID.setError("Student ID does not match format");
             check=false;
         }
-        else if(this.checkOverlapAttribute(studentID)){
+        else if(!this.checkOverlapAttribute("studentID",studentID)){
             editTextStudentID.setError("This student ID already exists");
             check=false;
         }
+
 
         if(check){
             progressDialog.setMessage("Please wait while registration...");
