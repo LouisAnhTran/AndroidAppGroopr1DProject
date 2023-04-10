@@ -112,10 +112,12 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins_bold"
         android:inputType="textMultiLine"
         android:text="@string/group_name"
         android:textAlignment="center"
         android:textColor="#BD7000"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ClothesIcon" />
@@ -125,10 +127,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:autoSizeTextType="uniform"
-        android:textAlignment="center"
-        android:textColor="#BD7000"
         android:inputType="textMultiLine"
         android:text="Module Name"
+        android:textAlignment="center"
+        android:textColor="#BD7000"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupName" />
@@ -149,14 +152,16 @@
         android:layout_width="204dp"
         android:layout_height="35dp"
         android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins_semibold"
+        android:inputType="textMultiLine"
+        android:text="Seeking bottoms in SUTD Capstone."
         android:textAlignment="center"
         android:textColor="#BD7000"
         android:textSize="8dp"
-        android:inputType="textMultiLine"
-        android:text="Seeking bottoms in SUTD Capstone."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modName" />
+        app:layout_constraintTop_toBottomOf="@+id/modName"
+        tools:textSize="16dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/manageApplications"

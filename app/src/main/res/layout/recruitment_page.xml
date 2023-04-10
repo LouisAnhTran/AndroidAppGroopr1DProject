@@ -34,12 +34,13 @@
         android:layout_height="75dp"
         android:layout_marginTop="300dp"
         android:backgroundTint="#E48700"
-        android:fontFamily="@font/poppins_light"
         android:text="@string/_50_001_introduction_to_information_systems"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:fontFamily="@font/poppins_semibold" />
 
     <Button
         android:id="@+id/module4"
@@ -48,13 +49,14 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="59dp"
         android:backgroundTint="#E48700"
-        android:fontFamily="@font/poppins"
         android:text="02.156DH Games of Histories"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/module3" />
+        app:layout_constraintTop_toBottomOf="@+id/module3"
+        tools:fontFamily="@font/poppins_semibold" />
 
     <Button
         android:id="@+id/module2"
@@ -62,12 +64,13 @@
         android:layout_height="75dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#FFB82D"
-        android:fontFamily="@font/poppins"
         android:text="50.002 Computation Structures"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/module1" />
+        app:layout_constraintTop_toBottomOf="@+id/module1"
+        tools:fontFamily="@font/poppins_semibold" />
 
     <Button
         android:id="@+id/module3"
@@ -75,12 +78,13 @@
         android:layout_height="75dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#D2A400"
-        android:fontFamily="@font/poppins"
         android:text="50.004 Algorithms"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/module2" />
+        app:layout_constraintTop_toBottomOf="@+id/module2"
+        tools:fontFamily="@font/poppins_semibold" />
 
     <TextView
         android:id="@+id/textView2"
@@ -102,13 +106,13 @@
         android:layout_height="43dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Which modules are you looking for?"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#707070"
         app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:textColor="@color/white" />
 
     <TextView
         android:id="@+id/titlePillarTerm"
