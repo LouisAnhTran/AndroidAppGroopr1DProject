@@ -242,6 +242,7 @@ public class ManageGroups extends AppCompatWithToolbar {
         youAreAdmin.setText("You are an admin.You can edit group.");
         manageApps.setVisibility(View.VISIBLE);
         editGroup.setVisibility(View.VISIBLE);
+        leaveGroup.setVisibility(View.INVISIBLE);
         Toast toast = Toast.makeText(getApplicationContext(), "Welcome, team leader!", Toast.LENGTH_SHORT);
         toast.show();
     }
