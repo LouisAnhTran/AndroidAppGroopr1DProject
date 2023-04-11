@@ -72,7 +72,7 @@ public class CreateGroupActivity extends AppCompatWithToolbar {
         createGroupFinalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createGroup();
+                if (!createGroup()) return;
                 Intent intent = new Intent(CreateGroupActivity.this, MyGroupsActivity.class);
                 startActivity(intent);
             }
@@ -107,7 +107,7 @@ public class CreateGroupActivity extends AppCompatWithToolbar {
         });
     }
 
-    void createGroup(){
+     boolean createGroup(){
         String groupName = groupNameInput.getText().toString();
         Integer capacity = Integer.parseInt(inputCapacity.getSelectedItem().toString());
         String groupDescription = inputGroupDescription.getText().toString();
@@ -117,7 +117,7 @@ public class CreateGroupActivity extends AppCompatWithToolbar {
 
         boolean isValidated = validateData(groupName, groupDescription, groupSkill);
         if(!isValidated){
-            return;
+            return false;
         }
         // If validated, proceed to create group
         studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -136,6 +136,7 @@ public class CreateGroupActivity extends AppCompatWithToolbar {
                 Log.e("FirebaseError", "Error getting user data", databaseError.toException());
             }
         });
+        return true;
 
     }
 
