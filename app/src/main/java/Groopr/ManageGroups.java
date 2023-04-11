@@ -35,7 +35,7 @@ import Groopr.Model.MembersAdapter;
 import Groopr.Model.Project;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
-
+import Groopr.Model.StudentSupport;
 
 
 public class ManageGroups extends AppCompatWithToolbar {
@@ -47,6 +47,8 @@ public class ManageGroups extends AppCompatWithToolbar {
     private String curr_UID;
     private boolean is_admin;
     private List<String> member_list;
+    private List<String> student_names;
+    private List<Student> studentList;
 
     private TextView manageGroups;
     private TextView youAreAdmin;
@@ -119,6 +121,44 @@ public class ManageGroups extends AppCompatWithToolbar {
                 if (is_admin) {
                     admin_mode();
                 }
+
+                mDatabase.child("Student").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        // Init arrays
+                        student_names = new ArrayList<String>();
+                        studentList = new ArrayList<Student>();
+
+                        // Get all students
+                        for(DataSnapshot ob: snapshot.getChildren()){
+                            StudentSupport stu = ob.getValue(StudentSupport.class);
+                            stu.setStudentUID(ob.getKey());
+                            studentList.add(stu);
+                        }
+
+
+                        for(Student stu: studentList){
+                            if(member_list.contains(((StudentSupport) stu).getStudentUID())){
+                                student_names.add(stu.getFullName());
+                            }
+                        }
+
+
+                        // Inserting members into recycle view
+                        recyclerView.setLayoutManager( new LinearLayoutManager(ManageGroups.this));
+                        RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
+                                = new MembersAdapter(ManageGroups.this, student_names);
+                        recyclerView.setAdapter( adapter );
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 // Inserting members into recycle view
                 recyclerView.setLayoutManager( new LinearLayoutManager(ManageGroups.this));

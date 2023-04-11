@@ -30,11 +30,13 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import Groopr.Model.ApplicationAdapter;
 import Groopr.Model.MembersAdapter;
 import Groopr.Model.Project;
 import Groopr.Model.ProjectSupport;
 import Groopr.Model.RecruitmentAdapter;
 import Groopr.Model.Student;
+import Groopr.Model.StudentSupport;
 
 public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private DatabaseReference mDatabase;
@@ -53,6 +55,7 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
     private ArrayList<String> application_list;
     private List<String> member_list;
     private List<String> student_names;
+    private List<Student> studentList;
     RecyclerView recyclerView;
 
 
@@ -122,30 +125,52 @@ public class RecruitmentGroupInfo extends AppCompatWithToolbar {
                     intent.putExtra(TAG, projectID);
                     startActivity(intent);
                 }
+                /** Retrieval of student names
+                 * Currently brute forcing by iterating through entire list
+                 * Single .get() methods leads to sync issues
+                 * Unable to optimise for now
+                 * O(n)
+                 */
 
+                mDatabase.child("Student").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                // TODO: THIS PART BREAKS, SUPPOSE TO CONVERT IDs to FULL NAMES
-                // TODO: Replace recycler view's `member_list` with `student_names`
-                student_names = new ArrayList<>();
-                for (String member: member_list) {
-                    mDatabase.child("Student").child(member).child("fullName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            student_names.add(String.valueOf(task.getResult().getValue()));
+                        // Init arrays
+                        student_names = new ArrayList<String>();
+                        studentList = new ArrayList<Student>();
+
+                        // Get all students
+                        for(DataSnapshot ob: snapshot.getChildren()){
+                            StudentSupport stu = ob.getValue(StudentSupport.class);
+                            stu.setStudentUID(ob.getKey());
+                            studentList.add(stu);
                         }
-                    });
 
-                }
 
-                if (member_list.size() != 0) {
-                    Log.d("Size", "OK");
-                } else { Log.d("Size",  "Zero");}
+                        for(Student stu: studentList){
+                            if(member_list.contains(((StudentSupport) stu).getStudentUID())){
+                                student_names.add(stu.getFullName());
+                            }
+                        }
 
-                // Inserting members into recycle view
-                recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
-                RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
-                        = new MembersAdapter(RecruitmentGroupInfo.this, member_list);
-                recyclerView.setAdapter( adapter );
+
+                        // Inserting members into recycle view
+                        recyclerView.setLayoutManager( new LinearLayoutManager(RecruitmentGroupInfo.this));
+                        RecyclerView.Adapter<MembersAdapter.MembersHolder> adapter
+                                = new MembersAdapter(RecruitmentGroupInfo.this, student_names);
+                        recyclerView.setAdapter( adapter );
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
 
 
             }
